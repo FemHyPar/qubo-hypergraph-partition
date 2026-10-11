@@ -1,0 +1,19 @@
+Copyright 2026 the fem-hypergraph-partition contributors.
+Required notice: https://github.com/yao-baijian/qubo-hypergraph-partition
+Commercial licensing: byao@connect.ust.hk
+
+Project-owned source, compiled extensions and included figures are supplied
+under PolyForm Noncommercial License 1.0.0. This notice does not change the
+licences of third-party libraries or grant rights to external benchmark data.
+
+The runtime imports independently installed NumPy, and the optional native
+backend imports independently installed PyTorch and SciPy. Their code is not
+vendored in the release. Their respective copyright and licence notices apply:
+https://numpy.org/doc/stable/license.html
+https://github.com/pytorch/pytorch/blob/main/LICENSE
+https://github.com/scipy/scipy/blob/main/LICENSE.txt
+
+Cython-generated binary support follows the Cython project's licence and
+generated-code exception: https://github.com/cython/cython/blob/master/LICENSE.txt
+This exception does not require applying Cython's licence to the compiled
+project implementation.

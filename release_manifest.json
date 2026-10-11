@@ -1,0 +1,16 @@
+{
+  ".gitignore": "763d1531521e4a4ad8c3697f32a27ca999e2d2ea1bc6ebc3b6dce2b59ec957dd",
+  "LICENSE": "c0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5",
+  "NOTICE": "95b31166b5575839c49f6bf51ffda90a9c16cc5730484b83fb24d377c9ed25c2",
+  "README.md": "d2ecc776e9ff5a0e32e0fc17f695d3fba0c3f7a5afd1d1026e9415e0b05c87ce",
+  "docs/images/method.png": "4c3dae969f8e419e4dc1134cabb7629a7e68fc6c8b940cb4ee895f7d28e0fbac",
+  "docs/images/objectives.png": "cf72bc1aeed0adb84251d3ceff33b4fc0e5a2a8f278a92d895b4d9598453ce89",
+  "examples/tiny.hgr": "5e3617872a73a6ddfab94862c01a5a257034f874f6a80a2aeca7e75ed77de1a7",
+  "pyproject.toml": "120b0db6a3fd2bdb4fdd5e81a31a8161a5c1a63add45f6e3ee1922f5998f34d2",
+  "src/fem_hypergraph_partition/__init__.py": "8f360c66c5e6f1ec87f12ef3c46921076a66acbba79ddc0387131bb40c7e0302",
+  "src/fem_hypergraph_partition/api.py": "9dd6934acd0897cdabbcb0c5ce6428c18a73e2efb9929a7fd6392df2b240983d",
+  "src/fem_hypergraph_partition/cli.py": "ded7f67e358bcb93d7de8b222937692ae0f287ccbfcd58144da2803e55a65969",
+  "src/fem_hypergraph_partition/model.py": "daf2a64821edf4c864f4fbd2569629261e01add5c2b522d7a650d2acb7bbc0e6",
+  "src/fem_hypergraph_partition/reference.py": "1b6aa23f2d7719026c7f09d3826aa2c3df4696e249e77b16598c70fbef1eb6d2",
+  "tests/test_public_api.py": "b54a0212131307ff94f114214705d943dbb2d8469aee49832f3528377d8e5747"
+}
