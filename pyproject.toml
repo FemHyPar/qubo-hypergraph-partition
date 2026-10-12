@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fem-hypergraph-partition"
-version = "0.1.0a1"
+version = "0.1.0a3"
 description = "QUBO hypergraph partitioning with a reference FEM and optional compiled catalyst engine"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24,<3"]
@@ -16,6 +16,7 @@ authors = [{name = "Baijian Yao", email = "byao@connect.ust.hk"}]
 [project.optional-dependencies]
 native = ["torch>=2.5,<3", "scipy>=1.11,<2"]
 test = ["pytest>=7"]
+plots = ["matplotlib>=3.7,<4"]
 
 [project.scripts]
 fem-hypergraph = "fem_hypergraph_partition.cli:main"

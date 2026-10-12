@@ -1,0 +1,59 @@
+{
+  "wheel": "fem_hypergraph_partition-0.1.0a3-cp310-cp310-linux_x86_64.whl",
+  "sha256": "5216d1f08f60b7def1e996e3c33f35afb727679ca01c3af2e225116a56033f5e",
+  "bytes": 1037464,
+  "base_binary_wheel_sha256": "2a3b42b9fdf0a969af953e15187689a6b0b6307689a339089ef3ba05276500ec",
+  "all_engine_entries_unchanged": true,
+  "scope": "Public API/CPU baseline update; compiled 0.1.0a2 engine and SM80 kernels unchanged. No new large-instance performance claim.",
+  "version": "0.1.0a3",
+  "python_abi": "cp310",
+  "platform": "linux_x86_64",
+  "gpu_architecture": "SM80",
+  "native_smoke_validation": {
+    "python": "3.10.12",
+    "torch": "2.9.1+cu128",
+    "cuda_runtime": "12.8",
+    "device": "cuda",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "rows": [
+      {
+        "epsilon": 0,
+        "cut": 2,
+        "feasible": true,
+        "same_partition": true,
+        "same_initial_fields": true,
+        "native_seconds": 0.9637131043709815,
+        "python_seconds": 0.7383574359118938,
+        "cuda_graph_same_partition": true
+      },
+      {
+        "epsilon": 0.03,
+        "cut": 2,
+        "feasible": true,
+        "same_partition": true,
+        "same_initial_fields": true,
+        "native_seconds": 0.22423663502559066,
+        "python_seconds": 2.082429285161197,
+        "cuda_graph_same_partition": true
+      },
+      {
+        "epsilon": 0.2,
+        "cut": 2,
+        "feasible": true,
+        "same_partition": true,
+        "same_initial_fields": true,
+        "native_seconds": 0.21878241933882236,
+        "python_seconds": 2.096841285470873,
+        "cuda_graph_same_partition": true
+      }
+    ],
+    "scope": "Compiled prototype vs matching Torch source and captured vs uncaptured short paths; no large-instance quality/timing claim"
+  },
+  "previous_large_instance_configurations_audited": 7,
+  "publication_status": "Prepared local artifact; upload as a public GitHub Release asset separately from branch synchronization.",
+  "limitations": [
+    "Full 30-instance native performance protocol not validated.",
+    "Direct HUBO remains a private research experiment.",
+    "Compiled binary source is excluded from the SDK branch."
+  ]
+}

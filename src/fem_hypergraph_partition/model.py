@@ -88,6 +88,9 @@ class CutNetQUBO:
         self.graph = graph
         self.n, self.m = graph.n, len(graph.edges)
         self.lower, self.upper = capacity(graph.n, epsilon)
+        if epsilon == 0:
+            # Fix one orientation of an odd bipartition, as in the manuscript.
+            self.lower = self.upper = graph.n//2
         self.sizes = np.array(list(map(len, graph.edges)))
         self.pins = np.concatenate(graph.edges).astype(np.int64)
         self.ids = np.repeat(np.arange(self.m), self.sizes)

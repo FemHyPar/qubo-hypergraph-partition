@@ -4,22 +4,30 @@ from .model import Hypergraph, capacity, score
 
 
 def partition(graph, *, epsilon=.03, seed=21, steps=12000, cold=144,
-              replicas=48, backend='reference', device='cpu', capture=True):
+              replicas=48, backend='reference', device='cpu', capture=True, root_iterations=24):
     if not isinstance(graph, Hypergraph):
         raise TypeError("graph must be a Hypergraph")
     capacity(graph.n, epsilon)
-    for name, value, minimum in [('seed',seed,0), ('steps',steps,4), ('cold',cold,0), ('replicas',replicas,1)]:
+    for name, value, minimum in [('seed',seed,0), ('steps',steps,4), ('cold',cold,0), ('replicas',replicas,1), ('root_iterations',root_iterations,1)]:
         if isinstance(value, bool) or not isinstance(value, int) or value < minimum:
             raise ValueError(f"{name} must be an integer >= {minimum}")
     if backend == 'reference':
         if device != 'cpu':
             raise ValueError("the portable reference uses CPU; request backend='native' for CUDA")
         from .reference import partition_reference
-        return partition_reference(graph, epsilon, seed, steps, cold, replicas)
+        return partition_reference(graph, epsilon, seed, steps, cold, replicas, root_iterations)
+    if backend == 'educational':
+        if device != 'cpu':raise ValueError('the educational Adam solver uses CPU')
+        from .educational import partition_reference
+        result=partition_reference(graph,epsilon,seed,steps,cold,replicas)
+        result['backend']='educational'
+        return result
     if backend != 'native':
-        raise ValueError("backend must be 'reference' or 'native'")
+        raise ValueError("backend must be 'reference', 'educational' or 'native'")
     if replicas != 48:
         raise ValueError("this native prototype uses the fixed 48-replica portfolio")
+    if root_iterations != 24:
+        raise ValueError('the native engine owns its validated root policy; this option configures the CPU reference only')
     try:
         engine = importlib.import_module('fem_hypergraph_partition._engine.entry')
     except ModuleNotFoundError as exc:

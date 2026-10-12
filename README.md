@@ -17,9 +17,9 @@ research study examine related Ising Hamiltonians separately.
 
 The original motivation includes **HUBO catalysis**. The current large-instance
 benchmark and released solver implement **exact QUBO catalysis**, using
-auxiliary bits to encode the same cut-net objective. Direct HUBO is included
-in the research comparison; a matched direct-HUBO catalyst solver remains a
-separate research task. The solver starts from the original incidence
+auxiliary bits to encode the same cut-net objective. The private research implementation also evolves the native
+HUBO without net auxiliaries; three matched seen-instance comparisons and
+a fixed replica-timing mixture are included in the results below. The solver starts from the original incidence
 structure and random fields. KaHyPar supplies independently measured
 references and does not initialize the search.
 
@@ -84,7 +84,7 @@ of a benchmark's energy surface.
 
 ```bash
 python -m pip install .
-fem-hypergraph examples/tiny.hgr --steps 1000 --epsilon .03
+fem-hypergraph examples/tiny.hgr --steps 1000 --cold 144 --replicas 48 --epsilon .03
 ```
 
 ```python
@@ -95,9 +95,15 @@ result = partition(graph, steps=1000, backend="reference")
 print(result["cut"], result["observed_imbalance_percent"], result["feasible"])
 ```
 
-The public reference uses NumPy on CPU, independent Bernoulli distributions,
-exponential temperature annealing and Adam. It is an inspectable baseline,
-not the backend used for the manuscript's best results. Inputs currently
+The default `reference` backend implements the manuscript’s catalyst-off
+base FEM in NumPy on CPU: exact four-state net Gibbs blocks, a correlated
+slack block, the implicit count update, nearby starts, the late penalty ramp,
+128-update and phase-boundary checkpoints per replica, and original-QUBO
+one-bit descent for every replica. Catalyst interactions and local-temperature
+offsets are all off. This portable implementation verifies the base equations;
+it is not the accelerated solver behind the best results.
+The previous independent-Bernoulli Adam example remains available as
+`backend="educational"`, and is not a manuscript catalyst-off baseline. Inputs currently
 support unweighted `.hgr` format 0, two blocks and unweighted vertices.
 
 ## Compiled engine
@@ -107,7 +113,7 @@ version, then install its Torch/SciPy runtime dependencies:
 
 ```bash
 python -m pip install 'fem-hypergraph-partition[native] @ file:///absolute/path/to/matching.whl'
-fem-hypergraph examples/tiny.hgr --backend native --device cuda --steps 12000
+fem-hypergraph examples/tiny.hgr --backend native --device cuda --steps 12000 --cold 144 --replicas 48 --capture
 ```
 
 The optional backend retains the catalyst portfolio, sparse incidence
@@ -116,7 +122,9 @@ modules. It uses 48 replicas. The SM80 preview compiles fused FP64 implicit
 updates, auxiliary responses and sparse incidence products ahead of time; it
 uses the same CUDA Graph replay and avoids runtime kernel compilation. The
 CPU preview uses Torch operations. The imbalance band uses a conservative
-numerical safeguard. Validation compares original-graph random fields, cut,
+numerical safeguard. Version 0.1.0a3 updates the public CPU/API layer; its supplied SM80 artifact
+retains the separately validated 0.1.0a2 compiled engine.
+Validation compares original-graph random fields, cut,
 measured imbalance and timing with the development implementation. The full
 30-instance manuscript protocol remains a separate research benchmark.
 A small graph must contain
@@ -141,6 +149,51 @@ also compares cuts and whole-pipeline times with KaHyPar at matching imbalance
 settings. Faster primitive kernels alone establish neither a better optimizer
 nor a way around an overlap gap.
 
+## Measured research results
+
+Read the current [manuscript](paper/manuscript.pdf) and
+[Supplementary Information](paper/supplementary.pdf) by Baijian Yao,
+Xiwei Pan and Wei Zhang. These are working manuscripts, not accepted papers.
+
+These four charts summarize the **research FEM**, not runs of the public
+CPU reference. QUBO uses a frozen 48-replica policy on 30 original inputs at
+0%, 1% and 3% allowed imbalance. The separate HUBO study uses three **seen**
+inputs, one seed, 48 replicas per arm and exact balance. The mixed catalyst
+redistributes the same 48 replicas across four fixed timing paths.
+
+![QUBO cut and observed imbalance](docs/images/qubo_quality.png)
+
+QUBO quality: (a) 0%, (b) 1%, (c) 3% allowed imbalance. Bars normalize cut to
+the matching KaHyPar reference; lower is better. Every bar annotation gives
+**native cut; measured imbalance (%)**. At 0% the policy improves 15 of 30
+recorded references; at 1% and 3% it improves none and ties four.
+
+![QUBO charged runtime](docs/images/qubo_runtime.png)
+
+QUBO timing: the same three capacity settings; annotations are seconds.
+The horizontal scale is logarithmic to retain slow preprocessing cases.
+FEM times charge mode construction, setup, search and all-replica descent.
+
+![HUBO cut and observed imbalance](docs/images/hubo_quality.png)
+
+HUBO quality: (a) *finan512*, (b) *IBM13*, (c) *rajat26*. Annotations give
+native cut and measured imbalance; every partition is exactly balanced.
+The mixed policy reaches 146, 2,232 and 116, respectively. It still loses to
+KaHyPar on the latter two inputs, and these tests do not establish transfer.
+
+![HUBO charged runtime](docs/images/hubo_runtime.png)
+
+HUBO timing: the same three inputs. Off arms do not charge unused mode
+construction. FEM runs on A100; KaHyPar uses one i7-12700 CPU thread with
+separate soft budgets. These times are not equal-hardware speedups.
+
+The [machine-readable tables](docs/benchmarks/paper_tables.json) retain
+native cuts, actual imbalance, input hashes and time for every entry.
+[Reproduction scope](docs/reproducibility.md) distinguishes verified base
+mechanisms, aggregate plots and the protected performance protocol.
+Redraw the charts with `python docs/plot_benchmarks.py` after installing
+`pip install '.[plots]'`. No quantum advantage or OGP escape is established.
+
 ## Licence
 
 This software is available under the
@@ -151,4 +204,8 @@ This is a source-available noncommercial release, not an OSI open-source
 licence. Third-party software retains its own terms; see [NOTICE](NOTICE).
 
 Normal graph Ising partitioning is maintained separately on the
-`hybird-ising-partition` branch.
+`hybird-ising-partition` branch; its graph datasets are not hypergraph inputs.
+
+The private upstream has `private-dev` (ongoing research), `private-release`
+(validated research snapshot) and `public-release` (this clean SDK). Only
+`public-release` is synchronized into this public repository’s `main`.
