@@ -72,7 +72,9 @@ The private upstream keeps `private-dev`, `private-release` and
 `public-release`. This clean branch has no research-source ancestors. Only
 it can synchronize into `yao-baijian/qubo-hypergraph-partition:main`.
 The private repository needs the `PUBLIC_RELEASE_TOKEN` Actions secret,
-restricted to Contents write on that public repository. The workflow checks
+restricted to Contents and Workflows write on that public repository. Workflows
+permission is needed when synchronized commits change workflow files; see
+[GitHub permissions](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens). The workflow checks
 the exact SDK manifest, protected ancestry and public tests before an ordinary
 fast-forward push. It never pushes private branches, tags or force updates.
 

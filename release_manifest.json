@@ -1,6 +1,6 @@
 {
   ".github/scripts/audit_tree.py": "21b28d88e5b713323409bb6a8e0b52b6cbaf1e56168660353b889aa3ed8d12e2",
-  ".github/workflows/sync-public-release.yml": "f4728f104242921fae76448c0ec15969d2ba53271f088c4f77bd3397a46de773",
+  ".github/workflows/sync-public-release.yml": "8e14211765d9b193f572402c851a6353f91ef019fb43799f8565ef0b966da941",
   ".gitignore": "763d1531521e4a4ad8c3697f32a27ca999e2d2ea1bc6ebc3b6dce2b59ec957dd",
   "LICENSE": "c0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5",
   "NOTICE": "95b31166b5575839c49f6bf51ffda90a9c16cc5730484b83fb24d377c9ed25c2",
@@ -16,7 +16,7 @@
   "docs/images/qubo_quality.png": "754fb483205e1dadbcf1819fc40dfb551d761b0aad95e2f6aa8a4d80d56e0303",
   "docs/images/qubo_runtime.png": "e6cec342a5daedbc1eaff533eb3da1f223ec7025d73dc9122a05d3d62cd98b56",
   "docs/plot_benchmarks.py": "f325702b15f2b269d9564bac02d2b1238333105034d7a4fb9b9e5ad4cd017987",
-  "docs/reproducibility.md": "c9ba76da71d795597498574046e0dc44fc45e3d875a1782df589b40a3ced5735",
+  "docs/reproducibility.md": "85b6db1a329f7d6e971fc91d5aaaf462ee1e12de9cc7f45e45d5a41bf8c02704",
   "examples/counterexample_a.hgr": "a39c1c3c3843e73c396cbbe1faa7ab8d382d62fd8ea001355db7a2a6a2d80b95",
   "examples/counterexample_b.hgr": "3d9abc07ec50f47e0f25f048b9295df38eef64944435cdd336c768a55d023ce6",
   "examples/tiny.hgr": "5e3617872a73a6ddfab94862c01a5a257034f874f6a80a2aeca7e75ed77de1a7",
