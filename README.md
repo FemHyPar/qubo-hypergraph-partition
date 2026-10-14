@@ -118,9 +118,13 @@ fem-hypergraph examples/tiny.hgr --backend native --device cuda --steps 12000 --
 
 The optional backend retains the catalyst portfolio, sparse incidence
 operations, manual updates and CUDA Graph replay inside compiled extension
-modules. It uses 48 replicas. The SM80 preview compiles fused FP64 implicit
-updates, auxiliary responses and sparse incidence products ahead of time; it
-uses the same CUDA Graph replay and avoids runtime kernel compilation. The
+modules. It uses 48 replicas. New development SM80 builds default to FP32
+for fused updates, sparse actions and CUDA Graph replay, with TF32 disabled.
+CPU high-precision mode checks and exact integer partition scoring remain
+separate. The previously supplied 0.1.0a2 binary retains its recorded FP64
+implementation; an existing wheel does not change when this SDK is pushed.
+FP32 validation on IBM01 improves search time but changes cut quality, so
+the historical FP64 manuscript benchmarks are not relabelled as FP32 results. The
 CPU preview uses Torch operations. The imbalance band uses a conservative
 numerical safeguard. Version 0.1.0a3 updates the public CPU/API layer; its supplied SM80 artifact
 retains the separately validated 0.1.0a2 compiled engine.
@@ -152,8 +156,8 @@ nor a way around an overlap gap.
 ## Measured research results
 
 Read the current [manuscript](paper/manuscript.pdf) and
-[Supplementary Information](paper/supplementary.pdf) by Baijian Yao,
-Xiwei Pan and Wei Zhang. These are working manuscripts, not accepted papers.
+[Supplementary Information](paper/supplementary.pdf) by Baijian Yao
+and Xiwei Pan. These are working manuscripts, not accepted papers.
 
 These four charts summarize the **research FEM**, not runs of the public
 CPU reference. QUBO uses a frozen 48-replica policy on 30 original inputs at
