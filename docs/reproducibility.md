@@ -71,12 +71,14 @@ aggregate plot or small test establishes full benchmark reproduction.
 The private upstream keeps `private-dev`, `private-release` and
 `public-release`. This clean branch has no research-source ancestors. Only
 it can synchronize into `yao-baijian/qubo-hypergraph-partition:main`.
-The private repository needs the `PUBLIC_RELEASE_TOKEN` Actions secret,
-restricted to Contents and Workflows write on that public repository. Workflows
-permission is needed when synchronized commits change workflow files; see
-[GitHub permissions](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens). The workflow checks
-the exact SDK manifest, protected ancestry and public tests before an ordinary
-fast-forward push. It never pushes private branches, tags or force updates.
+The private repository uses its `PUBLIC_RELEASE_SSH_KEY` Actions secret,
+containing a dedicated deploy key with write access only to this public
+repository. The optional `PUBLIC_RELEASE_TOKEN` path remains supported.
+The workflow verifies the exact SDK manifest, protected ancestry and
+public tests before an ordinary fast-forward push, then checks the remote
+commit. It never pushes private branches, tags or force updates. A separate
+public push is unnecessary once the audited release reaches the private
+upstream. See [GitHub deploy-key documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys).
 
 This is synchronization, not a GitHub fork: private repository forks remain
 private according to [GitHub's fork rules](https://docs.github.com/en/pull-requests/reference/forks).

@@ -10,24 +10,23 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sync:
-    if: github.ref == 'refs/heads/public-release' && github.repository != 'yao-baijian/qubo-hypergraph-partition'
+    if: github.ref == 'refs/heads/public-release' && github.repository == 'yao-baijian/Hybird-Ising-Partition'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Fetch only the clean release branch, test and sync
+      - name: Audit the clean release, test and fast-forward public main
         env:
           PRIVATE_READ_TOKEN: ${{ github.token }}
+          PUBLIC_RELEASE_SSH_KEY: ${{ secrets.PUBLIC_RELEASE_SSH_KEY }}
           PUBLIC_RELEASE_TOKEN: ${{ secrets.PUBLIC_RELEASE_TOKEN }}
           GIT_TERMINAL_PROMPT: '0'
         shell: bash
         run: |
           set -euo pipefail
-          if [ -z "$PUBLIC_RELEASE_TOKEN" ]; then
-            echo '::error::Set PUBLIC_RELEASE_TOKEN in the private repository; grant Contents and Workflows write only on qubo-hypergraph-partition.'
-            exit 1
-          fi
           helper="$RUNNER_TEMP/fem-release-askpass"
-          trap 'rm -f "$helper"' EXIT
+          keyfile="$RUNNER_TEMP/fem-public-deploy-key"
+          hostsfile="$RUNNER_TEMP/fem-github-known-hosts"
+          trap 'rm -f "$helper" "$keyfile" "$hostsfile"' EXIT
           cat > "$helper" <<'SH'
           #!/bin/sh
           case "$1" in
@@ -46,8 +45,22 @@ jobs:
           python3 .github/scripts/audit_tree.py
           python3 -m pip install '.[test]'
           python3 -m pytest -q tests
-          export SYNC_GIT_TOKEN="$PUBLIC_RELEASE_TOKEN"
-          git remote add public https://github.com/yao-baijian/qubo-hypergraph-partition.git
+          if [ -n "$PUBLIC_RELEASE_SSH_KEY" ]; then
+            umask 077
+            printf '%s\n' "$PUBLIC_RELEASE_SSH_KEY" > "$keyfile"
+            curl -fsSL https://api.github.com/meta | python3 -c 'import json,sys; print("\n".join("github.com "+key for key in json.load(sys.stdin)["ssh_keys"]))' > "$hostsfile"
+            export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$hostsfile"
+            unset GIT_ASKPASS SYNC_GIT_TOKEN
+            git remote add public git@github.com:yao-baijian/qubo-hypergraph-partition.git
+          elif [ -n "$PUBLIC_RELEASE_TOKEN" ]; then
+            export SYNC_GIT_TOKEN="$PUBLIC_RELEASE_TOKEN"
+            git remote add public https://github.com/yao-baijian/qubo-hypergraph-partition.git
+          else
+            echo '::error::Configure PUBLIC_RELEASE_SSH_KEY or PUBLIC_RELEASE_TOKEN in the private repository.'
+            exit 1
+          fi
           git fetch --no-tags public refs/heads/main:refs/remotes/public/main
           git merge-base --is-ancestor refs/remotes/public/main HEAD
           git push public HEAD:refs/heads/main
+          test "$(git ls-remote public refs/heads/main | cut -f1)" = "$(git rev-parse HEAD)"
+          echo "Public main now matches the audited release: $(git rev-parse HEAD)"
