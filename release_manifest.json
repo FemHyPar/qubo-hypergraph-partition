@@ -1,6 +1,6 @@
 {
   ".github/scripts/audit_tree.py": "21b28d88e5b713323409bb6a8e0b52b6cbaf1e56168660353b889aa3ed8d12e2",
-  ".github/workflows/sync-public-release.yml": "70f77d3ff195ce978dd8b3fa37951f50ca0fb434a818bfc20ea2c17ec1248c2a",
+  ".github/workflows/sync-public-release.yml": "5f1d097e145fe3a3851ce0d08978962920e9dbe1d816c3aa4d9f0d36c7c26d39",
   ".gitignore": "763d1531521e4a4ad8c3697f32a27ca999e2d2ea1bc6ebc3b6dce2b59ec957dd",
   "LICENSE": "c0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5",
   "NOTICE": "95b31166b5575839c49f6bf51ffda90a9c16cc5730484b83fb24d377c9ed25c2",
