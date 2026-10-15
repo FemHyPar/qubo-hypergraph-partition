@@ -1,86 +1,87 @@
 # Reproduction scope
 
-The public reference now implements the manuscript's **catalyst-off base**.
-Its four-state net Gibbs blocks, correlated slack distribution with binary
-multiplicities, count-variance contribution, manual implicit update, nearby
-fields, degree-scaled step sizes, late penalty ramp and per-replica
-checkpoint/readout rules replace the earlier Adam example as the default.
-The old independent-Bernoulli Adam implementation is named `educational`.
-All temporary energy terms and local-temperature offsets are off in the
-reference. This is a mechanism baseline, not the catalytic research policy.
+## Complete catalytic solver
 
-Public tests verify the Gibbs energy/entropy identity, slack multiplicities
-against binary enumeration, implicit roots against independent bisection,
-every polynomial one-bit move at readout, and the two 12-vertex objective
-counterexamples (924 balanced assignments each). The private integration
-audit separately compares the public CPU base with catalyst-off research
-trajectories. Its aggregate certificate and source hashes are in
-[base_validation.json](benchmarks/base_validation.json).
+Version 0.1.0a4 makes the protected compiled solver the default. It retains
+the exact cut-net QUBO, all original vertex and net variables, correlated
+auxiliary/slack blocks and the full 48-replica portfolio. The three groups
+use local, unscaled-mode and normalized-mode directions with matched random
+starts. Pair, auxiliary, collective and local-temperature schedules are
+retained and vanish before final readout. Arithmetic is explicitly FP64.
 
-The strict polynomial fixes the vertex count to floor(n/2), including odd
-inputs, as in the paper. At nonzero allowed imbalance it uses bounded binary
-slack. Independent scoring accepts either orientation of a balanced odd
-partition. Inputs and the large-instance experiment currently use unit net
-and vertex weights; weighted theoretical examples require the private
-research implementation. The `.hgr` parser deliberately supports format 0.
+The standard budget is 12,000 annealing updates and 144 cold updates, with
+24 implicit-root iterations and checkpoints every 128 updates plus phase
+boundaries. `partition` reports the best raw feasible FEM endpoint. Separate
+`selected_partition`, `selected_cut` and `selected_feasible` fields retain
+the result of original-polynomial descent on all replicas.
+
+Install a matching compiled wheel and its runtime dependencies:
+
+```bash
+python -m pip install 'fem-hypergraph-partition[native] @ file:///absolute/path/to/matching.whl'
+fem-hypergraph examples/tiny.hgr --device cuda --epsilon .03
+```
+
+The CPython 3.10 SM80 wheel includes fused CUDA kernels. The CPython 3.11
+wheel runs the same catalytic policy through Torch. Neither silently falls
+back to the catalyst-off baseline. An absent or outdated compiled engine
+raises an error. Binary identities and build/check scope are recorded in
+[native_artifact.json](benchmarks/native_artifact.json).
+
+## Modes and numerical exceptions
+
+Fresh mode construction uses the original incidence operators. To retain
+an existing basis and its eigenvalues, use
+`--modes UNSCALED.npz NORMALIZED.npz`. Each cache needs `modes`, `inactive`
+and `eigenvalues` arrays, or the recorded eigenvalues in an adjacent
+`modes.json`. The engine checks support, balance, orthogonality and residuals
+against the supplied hypergraph before using a cache. Modes supply temporary
+couplings and do not initialize a binary partition.
+
+The manuscript's scircuit preprocessing exception requires its certified
+mode cache. Its imbalance-band root exception is explicitly selectable with
+`--root-iterations 64 --central-root`. It is not applied to every input.
+Historical mode-construction charges and failed-attempt charges in the
+paper remain distinct from the elapsed time of loading cached arrays.
+
+## Baselines and checks
+
+The NumPy catalyst-off FEM remains available with `--backend reference`.
+It implements four-state net Gibbs blocks, correlated slack with binary
+multiplicities, count variance, implicit updates and per-replica readout.
+The older independent-Bernoulli Adam example uses `--backend educational`.
+Both are explicit controls, not substitutes for the catalytic solver.
 
 ```bash
 python -m pip install '.[test,plots]'
 python -m pytest -q tests
 python docs/plot_benchmarks.py
 python docs/check_benchmarks.py --data-dir /path/to/hypergraphs
-fem-hypergraph examples/tiny.hgr --backend reference --epsilon 0 \
-  --steps 12000 --cold 144 --replicas 48 --root-iterations 24
 ```
 
-The CLI exposes replica count, cold steps and CUDA capture. The native
-prototype owns its separately validated numerical safeguard policy; the
-CPU root-iteration option cannot override that policy. The reference has
-no GPU acceleration. CPU time from this implementation cannot replace the
-A100 timing rows in the paper.
+Tests cover small exact QUBOs, independent cut/capacity scoring, base FEM
+mechanics and default-backend dispatch. When a compiled wheel is installed,
+they also execute its full portfolio on small inputs. These checks do not
+replace a full performance experiment. The author requested skipping a new
+large public/private comparison for this release, so no new 30-input native
+reproduction or quality improvement is claimed.
 
-## Results and artifacts
+## Published measurements
 
-[paper_tables.json](benchmarks/paper_tables.json) exports the native cuts,
-actual imbalance, measured times and input hashes for the 30-input QUBO
-study and separate three-input HUBO controls. The plot script reproduces
-the README bars from these aggregates. It does **not** rerun the solver.
-The KaHyPar times are measured process times, with per-instance soft budgets
-and differing hardware; they are not assumed runtimes copied from budgets.
-
-Large input files, reference partitions, full replica states, coherent
-simulation records and dataflow trials remain in the private research
-archive. Obtain benchmark inputs from their original distribution and
-check the exact hashes before comparing; do not substitute graph edge lists
-for hypergraph `.hgr` files. Peer-review reproduction requires the validated
-`private-release` snapshot and its artifact archive.
-
-The CPython 3.10/Linux x86-64 SM80 artifact retains the validated fused
-0.1.0a2 engine; version 0.1.0a3 updates the public API and CPU baseline.
-[native_artifact.json](benchmarks/native_artifact.json) records binary identity
-and validation scope. Its protected implementation is distributed only as
-compiled code. Seven paired large-instance configurations have been audited;
-the full 30-input performance protocol, scircuit preprocessing exception and
-new direct HUBO solver are **not** validated public-native reproductions yet.
-The runtime needs compatible Torch/SciPy; the private CuPy mode-construction
-experiments are not exposed by this prototype. No public reference runtime,
-aggregate plot or small test establishes full benchmark reproduction.
+[paper_tables.json](benchmarks/paper_tables.json) retains the frozen
+30-input QUBO study at 0%, 1% and 3% allowed imbalance, with native cuts,
+actual imbalance, input hashes and charged times. Plots redraw these saved
+measurements; they do not rerun the solver. Large inputs, saved mode/state
+arrays and reference partitions remain separate research artifacts. Obtain
+inputs from their original distribution and verify their hashes.
 
 ## Branches and synchronization
 
-The private upstream keeps `private-dev`, `private-release` and
-`public-release`. This clean branch has no research-source ancestors. Only
-it can synchronize into `yao-baijian/qubo-hypergraph-partition:main`.
-The private repository uses its `PUBLIC_RELEASE_SSH_KEY` Actions secret,
-containing a dedicated deploy key with write access only to this public
-repository. The optional `PUBLIC_RELEASE_TOKEN` path remains supported.
-The workflow verifies the exact SDK manifest, protected ancestry and
-public tests before an ordinary fast-forward push, then checks the remote
-commit. It never pushes private branches, tags or force updates. A separate
-public push is unnecessary once the audited release reaches the private
-upstream. See [GitHub deploy-key documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys).
-
-This is synchronization, not a GitHub fork: private repository forks remain
-private according to [GitHub's fork rules](https://docs.github.com/en/pull-requests/reference/forks).
-Store credentials in [GitHub Actions secrets](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token),
-never in tracked files or messages.
+The private upstream keeps `qubo-private-dev` separate from the clean
+`qubo-public-release` branch. Only the audited clean branch synchronizes to
+`FemHyPar/qubo-hypergraph-partition:main`. The workflow checks the release
+manifest, protected ancestry and public tests before an ordinary
+fast-forward push. It refuses diverged public history and never force-pushes
+research branches or tags. Synchronization uses `PUBLIC_RELEASE_SSH_KEY`;
+`PUBLIC_RELEASE_TOKEN` is an optional narrowly scoped fallback. Credentials
+stay in GitHub Actions secrets.

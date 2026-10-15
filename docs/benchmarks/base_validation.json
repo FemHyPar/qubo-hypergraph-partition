@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "tests": 20,
-  "public_mechanism_and_api_tests": 13,
+  "tests": 22,
+  "public_mechanism_and_api_tests": 15,
   "private_research_trajectory_comparisons": 7,
   "cases": [
     {
@@ -60,11 +60,12 @@
   "source_sha256": {
     "src/fem_hypergraph_partition/educational.py": "1b6aa23f2d7719026c7f09d3826aa2c3df4696e249e77b16598c70fbef1eb6d2",
     "src/fem_hypergraph_partition/model.py": "defcc51d93dd5e24b514ac0e9fff6b13286627734577bf4852fba70c83809cd9",
-    "src/fem_hypergraph_partition/__init__.py": "974f7e00ef7a5bf60a36ab8f720e287fa9d08de8035352ac29e1c76916f34022",
+    "src/fem_hypergraph_partition/__init__.py": "b97ce72e1ee4c752b45f11e32d6f92c6949832c4acd14d918d1653b04600ef7c",
     "src/fem_hypergraph_partition/reference.py": "b69adf48f907ed0e59099964f52057b8daa66c0ef174587c08caed967a5084a8",
-    "src/fem_hypergraph_partition/api.py": "435cafcc243ea56aa1ba349d2c66c84c17c6eb331a0228e16fcc1dd8cc66d170",
-    "src/fem_hypergraph_partition/cli.py": "d56a1a5d4836c88fada9c87c9511041d19ddb28e44468bcc55d328cbee4aa49b"
+    "src/fem_hypergraph_partition/api.py": "a7d1dbf79df78cc68aa89dd3da90ff07df99a90798828579f99a80768dfa9e70",
+    "src/fem_hypergraph_partition/cli.py": "981d2582ce9703da7df213f1e2d4c706d88163002505bfdbb43148aa2cf473f5"
   },
   "private_integration_test_sha256": "64ba9b9d8ccde0cc2a0331e42fef1d72b236f095844d17e8e29873cb546f2706",
-  "scope": "Small CPU equations and trajectory comparisons with every catalyst and local-temperature offset off. No large-instance GPU performance reproduction or quantum claim."
+  "scope": "Base FEM equations and seven CPU trajectory comparisons retained; current API is native by default and requires explicit reference selection. Source suite rerun: 30 passed, 1 optional-native skip; installed native wheel suite: 16 passed.",
+  "compiled_wheel_public_tests": 16
 }

@@ -67,7 +67,7 @@ def test_every_readout_is_an_original_qubo_single_bit_minimum():
 
 def test_primary_checkpoint_rules_and_replica_selection():
     graph=Hypergraph(6,((0,1,2),(3,4,5),(2,3)))
-    result=partition(graph,epsilon=0,steps=132,cold=8,replicas=4)
+    result=partition(graph,epsilon=0,steps=132,cold=8,replicas=4,backend='reference')
     assert result['checkpoints']==[128,132,140]
     assert len(result['replica_results'])==4 and result['manuscript_base']
     assert result['cut']==min(r['selected']['cut'] for r in result['replica_results'])

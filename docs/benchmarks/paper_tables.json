@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "qubo": [
     {
       "instance": "ISPD98_ibm01.hgr",
@@ -1412,104 +1412,10 @@
       ]
     }
   ],
-  "hubo": [
-    {
-      "instance": "finan512.mtx.hgr",
-      "allowed_imbalance_percent": 0,
-      "arms": [
-        {
-          "name": "off",
-          "cut": 7445.0,
-          "imbalance_percent": 0.0,
-          "seconds": 75.62051733070984
-        },
-        {
-          "name": "shared",
-          "cut": 146.0,
-          "imbalance_percent": 0.0,
-          "seconds": 112.43688876503438
-        },
-        {
-          "name": "mixed",
-          "cut": 146.0,
-          "imbalance_percent": 0.0,
-          "seconds": 113.76618373575911
-        },
-        {
-          "name": "kahypar",
-          "cut": 169,
-          "imbalance_percent": 0.0,
-          "seconds": 128.59417508495972
-        }
-      ]
-    },
-    {
-      "instance": "ISPD98_ibm13.hgr",
-      "allowed_imbalance_percent": 0,
-      "arms": [
-        {
-          "name": "off",
-          "cut": 4755.0,
-          "imbalance_percent": 0.0,
-          "seconds": 88.96744657214731
-        },
-        {
-          "name": "shared",
-          "cut": 2385.0,
-          "imbalance_percent": 0.0,
-          "seconds": 138.38234781213396
-        },
-        {
-          "name": "mixed",
-          "cut": 2232.0,
-          "imbalance_percent": 0.0,
-          "seconds": 139.1981345202803
-        },
-        {
-          "name": "kahypar",
-          "cut": 1204,
-          "imbalance_percent": 0.0,
-          "seconds": 130.32615856399934
-        }
-      ]
-    },
-    {
-      "instance": "rajat26.mtx.hgr",
-      "allowed_imbalance_percent": 0,
-      "arms": [
-        {
-          "name": "off",
-          "cut": 345.0,
-          "imbalance_percent": 0.0,
-          "seconds": 48.846895676571876
-        },
-        {
-          "name": "shared",
-          "cut": 181.0,
-          "imbalance_percent": 0.0,
-          "seconds": 93.04895435180515
-        },
-        {
-          "name": "mixed",
-          "cut": 116.0,
-          "imbalance_percent": 0.0,
-          "seconds": 93.4756434801966
-        },
-        {
-          "name": "kahypar",
-          "cut": 32,
-          "imbalance_percent": 0.0,
-          "seconds": 128.54381693499454
-        }
-      ]
-    }
-  ],
-  "scope": "QUBO: frozen 30-instance, 0/1/3% study, 48 replicas per setting. HUBO: three seen-instance controls, one seed and 48 replicas per arm. No quantum advantage or generalization claim.",
+  "scope": "QUBO: frozen 30-instance, 0/1/3% study, 48 FP64 replicas per setting. No quantum advantage or generalization claim.",
   "solver": "Research FEM, not the public CPU reference or educational Adam solver.",
-  "timing": "FEM on A100-PCIE-40GB; KaHyPar one i7-12700 CPU thread, differing soft budgets. FEM component sums include certified modes, setup, search and all-replica descent. HUBO off omits unused modes; loading and serialization excluded.",
+  "timing": "FEM on A100-PCIE-40GB; KaHyPar one i7-12700 CPU thread, differing soft budgets. FEM component sums include certified modes, setup, search and all-replica descent.",
   "source_summary_sha256": {
-    "experiments/results/matched30_2026-10-11/summary.json": "5a49f8bd5c48bc005b35368038691131210d19679d6f3cb4381f6aeae2f54bca",
-    "output/release/hubo_catalyst_2026-10-11/summary.json": "f15f5f73544ec38eeda4a74c181accdf3f291201ae5012f727794dda4fed44ff",
-    "output/release/mixed_encoding_catalyst_2026-10-11/summary.json": "6f20334afb69cee5ba3bd86db1cb4b421f4ce3d2acc2643d8d159ff5c93f9ba0"
+    "experiments/results/matched30_2026-10-11/summary.json": "5a49f8bd5c48bc005b35368038691131210d19679d6f3cb4381f6aeae2f54bca"
   }
 }

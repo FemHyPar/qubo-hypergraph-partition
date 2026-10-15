@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fem-hypergraph-partition"
-version = "0.1.0a3"
-description = "QUBO hypergraph partitioning with a reference FEM and optional compiled catalyst engine"
+version = "0.1.0a4"
+description = "Catalytic QUBO hypergraph partitioning with a protected FEM engine"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24,<3"]
 license = "LicenseRef-PolyForm-Noncommercial-1.0.0"

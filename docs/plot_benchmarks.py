@@ -1,4 +1,4 @@
-"""Redraw the four public charts from aggregate measurements only.
+"""Redraw the two QUBO charts from aggregate measurements only.
 
 Run: python docs/plot_benchmarks.py; requires NumPy and Matplotlib.
 """
@@ -41,22 +41,6 @@ def draw(path,output):
         handles,labels=axes[0].get_legend_handles_labels();fig.legend(handles,labels,loc='upper center',ncol=2,frameon=False)
         fig.subplots_adjust(left=.115,right=.98,top=.965,bottom=.09,wspace=.12)
         stem='qubo_runtime' if timing else 'qubo_quality';fig.savefig(output/(stem+'.png'),dpi=180);plt.close(fig)
-    colors=['#8d9daa','#287ba0','#ce8648','#cbd1d8'];labels=['Off','Shared','Mixed','KaHyPar']
-    for timing in [False,True]:
-        fig,axes=plt.subplots(1,3,figsize=(10.5,3.15))
-        for panel,(ax,row) in enumerate(zip(axes,data['hubo'])):
-            values=[r['seconds' if timing else 'cut'] for r in row['arms']]
-            ax.bar(np.arange(4),values,color=colors,width=.7)
-            if not timing:ax.set_yscale('log');ax.set_ylim(min(values)*.6,max(values)*2)
-            else:ax.set_ylim(0,max(values)*1.24)
-            for i,(value,arm) in enumerate(zip(values,row['arms'])):
-                text=f'{value:.2f}s' if timing else f"{value:,.0f}\n{arm['imbalance_percent']:.3f}%"
-                ax.text(i,value*(1.09 if not timing else 1)+(.025*max(values) if timing else 0),text,ha='center',va='bottom',fontsize=6.5)
-            ax.set_xticks(np.arange(4),labels,fontsize=7);ax.set_ylabel('Charged time (s)' if timing else 'Native cut (log scale)')
-            ax.text(.97,.97,short(row['instance']),transform=ax.transAxes,ha='right',va='top',fontstyle='italic')
-            ax.text(.5,-.22,f'({chr(97+panel)})',transform=ax.transAxes,ha='center',fontsize=10);ax.grid(axis='y',alpha=.13)
-        fig.subplots_adjust(left=.075,right=.99,top=.96,bottom=.22,wspace=.28)
-        stem='hubo_runtime' if timing else 'hubo_quality';fig.savefig(output/(stem+'.png'),dpi=180);plt.close(fig)
 
 
 if __name__=='__main__':

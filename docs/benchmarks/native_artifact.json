@@ -1,59 +1,120 @@
 {
-  "wheel": "fem_hypergraph_partition-0.1.0a3-cp310-cp310-linux_x86_64.whl",
-  "sha256": "5216d1f08f60b7def1e996e3c33f35afb727679ca01c3af2e225116a56033f5e",
-  "bytes": 1037464,
-  "base_binary_wheel_sha256": "2a3b42b9fdf0a969af953e15187689a6b0b6307689a339089ef3ba05276500ec",
-  "all_engine_entries_unchanged": true,
-  "scope": "Public API/CPU baseline update; compiled 0.1.0a2 engine and SM80 kernels unchanged. No new large-instance performance claim.",
-  "version": "0.1.0a3",
-  "python_abi": "cp310",
-  "platform": "linux_x86_64",
-  "gpu_architecture": "SM80",
-  "native_smoke_validation": {
-    "python": "3.10.12",
-    "torch": "2.9.1+cu128",
-    "cuda_runtime": "12.8",
-    "device": "cuda",
-    "gpu": "NVIDIA A100-PCIE-40GB",
-    "rows": [
-      {
-        "epsilon": 0,
-        "cut": 2,
-        "feasible": true,
-        "same_partition": true,
-        "same_initial_fields": true,
-        "native_seconds": 0.9637131043709815,
-        "python_seconds": 0.7383574359118938,
-        "cuda_graph_same_partition": true
-      },
-      {
-        "epsilon": 0.03,
-        "cut": 2,
-        "feasible": true,
-        "same_partition": true,
-        "same_initial_fields": true,
-        "native_seconds": 0.22423663502559066,
-        "python_seconds": 2.082429285161197,
-        "cuda_graph_same_partition": true
-      },
-      {
-        "epsilon": 0.2,
-        "cut": 2,
-        "feasible": true,
-        "same_partition": true,
-        "same_initial_fields": true,
-        "native_seconds": 0.21878241933882236,
-        "python_seconds": 2.096841285470873,
-        "cuda_graph_same_partition": true
-      }
-    ],
-    "scope": "Compiled prototype vs matching Torch source and captured vs uncaptured short paths; no large-instance quality/timing claim"
+  "version": "0.1.0a4",
+  "wheel": "fem_hypergraph_partition-0.1.0a4-cp310-cp310-linux_x86_64.whl",
+  "sha256": "ea00e4fcbb8e6b7c3f915421e18966c2c27b92065e46ae7666e892a7cfb21d73",
+  "bytes": 1201653,
+  "artifacts": [
+    {
+      "wheel": "fem_hypergraph_partition-0.1.0a4-cp310-cp310-linux_x86_64.whl",
+      "sha256": "ea00e4fcbb8e6b7c3f915421e18966c2c27b92065e46ae7666e892a7cfb21d73",
+      "bytes": 1201653,
+      "python_abi": "cp310",
+      "backend": "SM80 fused CUDA; CPU Torch",
+      "protected_source_excluded": true
+    },
+    {
+      "wheel": "fem_hypergraph_partition-0.1.0a4-cp311-cp311-linux_x86_64.whl",
+      "sha256": "25b25783bc50387be1852697a474c8e97bc17a5e7c1c4dedd6215d7384e47253",
+      "bytes": 946327,
+      "python_abi": "cp311",
+      "backend": "Torch",
+      "protected_source_excluded": true
+    }
+  ],
+  "protocol": "paper-qubo-v1",
+  "default_backend": "native",
+  "precision": "float64",
+  "replicas": 48,
+  "primary_endpoint": "raw",
+  "root_iterations": 24,
+  "explicit_exceptions": [
+    "64 central root iterations",
+    "certified original-incidence mode caches"
+  ],
+  "release_url": "https://github.com/FemHyPar/qubo-hypergraph-partition/releases/tag/v0.1.0a4",
+  "scope": "Full catalytic policy compiled from private research definitions; no catalyst-off fallback. New large public/private performance comparison skipped at author request.",
+  "source_protection": "Stripped compiled modules; no private Python/Cython/generated-C/CUDA sources in either wheel.",
+  "checks": {
+    "source_tests": "30 passed, 1 optional compiled-backend skip",
+    "installed_cp311_tests": "16 passed",
+    "cp311_cache_smoke": {
+      "package_path": "/tmp/fem-qubo-a4-installed-cp311/fem_hypergraph_partition/__init__.py",
+      "version": "0.1.0a4",
+      "installed_binary": true,
+      "cache_load": true,
+      "cache_cut": 2,
+      "central_exception": true,
+      "default_restored": true,
+      "tampered_cache_rejected": true,
+      "full_portfolio": 48,
+      "precision": "float64"
+    },
+    "cp310_cuda_smoke": {
+      "version": "0.1.0a4",
+      "package_path": "/tmp/fem-qubo-release-a4-20261015/installed/fem_hypergraph_partition/__init__.py",
+      "torch": "2.9.1+cu128",
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "gpu": "NVIDIA A100-PCIE-40GB",
+      "rows": [
+        {
+          "epsilon": 0,
+          "capture": false,
+          "cut": 2,
+          "feasible": true,
+          "replicas": 48,
+          "precision": "float64"
+        },
+        {
+          "epsilon": 0,
+          "capture": true,
+          "cut": 2,
+          "feasible": true,
+          "replicas": 48,
+          "precision": "float64"
+        },
+        {
+          "epsilon": 0.03,
+          "capture": false,
+          "cut": 2,
+          "feasible": true,
+          "replicas": 48,
+          "precision": "float64"
+        },
+        {
+          "epsilon": 0.03,
+          "capture": true,
+          "cut": 2,
+          "feasible": true,
+          "replicas": 48,
+          "precision": "float64"
+        }
+      ],
+      "scope": "Installed full compiled policy smoke and independent scoring; no large public/private comparison"
+    }
   },
-  "previous_large_instance_configurations_audited": 7,
-  "publication_status": "Prepared local artifact; upload as a public GitHub Release asset separately from branch synchronization.",
+  "source_sha256": {
+    "fast_fem": "57674cbfa683a2ed5f2472c3587bd68e0d14b42b447fdb5191342a221a6997d8",
+    "full_partition_qubo": "daded461bfa10c1d20c8f7d4ac860204000c1283b6bbf095409f1605efaaf4f9",
+    "scratch_qubo": "847fdd8f93bacc1a05ec1802e3d826ab2a638554c4a013c2b68818aa39b7670d",
+    "structural_catalysts": "c15d0234a9a6ad974efd7c1c797fa632d4419cfe3a2e6d221a885e9ef904ec04",
+    "replica_qubo_fem": "3c85504598cd8591af37cf29ca57f02417dee4bdc68e3cbe5db7804e01837afd",
+    "compiled_balance": "b03c5dd5f3ed0dda0be8378f3b30ed7a8078943c338a12ede2ed383b2bb8dea4",
+    "collective_catalyst_refinement": "09b4a4d7fa0037c2ebfb6c84fe51dae9088023cb4ddaa5f0bcbe1e03550dabaf",
+    "spectral_path_qubo": "be88fd605944ac86427e43dc6825bb7d6c4e3bb9ec40c0a92a51755f15a29c37",
+    "subspace_qubo": "90fee774572ba518ed7d45fe765ead5524b7dcafe8c9414f79e464c731c5ecb2",
+    "unified_catalyst": "57d4e64fa074741717fae5475f1dbb0189548a9877521da7539726389d6346c9",
+    "portfolio_suite": "6a2cc50364736540232ec1af421ac658ee6cdf697adc98e88ceeeb598b38af4a",
+    "band_partition_qubo": "2037fcff22252e23a73056a9cc95df16364f449b3ff0e3fc9ddb13701e099895",
+    "qubo_coordinate_descent": "84f2733cea5fb82db77cca9e9b6d4736e07426da1db3df2fc9fa000a22beaadb",
+    "build_spectral_catalysts": "bde84aaad55d08b0a554e7fdc3cc5a1e33b65b004f02d1e292a8a4e90e3def1e",
+    "certified_mode_cache": "61ea97ae0c0d81155f77acda2dd82103d574e7b944d91b7d8c7de245f663e144",
+    "robust_band_balance": "2c2d9f3e7c9c75e7e820ac255b916c0c385df8ab4f73bb38fab2d4123fd4c16b",
+    "fused_cuda": "b83dcb8e7177a4214577fbd305694bf47d48e04ec62020a666650de87e978fc3"
+  },
+  "entry_source_sha256": "a83095b87641e4304dfa0c0c8eeda7bde24bf0d50863b63fb6ff0fd22837f132",
   "limitations": [
-    "Full 30-instance native performance protocol not validated.",
-    "Direct HUBO remains a private research experiment.",
-    "Compiled binary source is excluded from the SDK branch."
+    "Full 30-input native outcome reproduction was not rerun.",
+    "Historical benchmark times remain separate from current engine timings."
   ]
 }

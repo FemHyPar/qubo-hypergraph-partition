@@ -12,7 +12,7 @@ ALLOWED={'.gitignore','README.md','LICENSE','NOTICE','pyproject.toml',
     'docs/benchmarks/paper_tables.json','docs/benchmarks/base_validation.json','docs/benchmarks/native_artifact.json',
     'paper/manuscript.pdf','paper/supplementary.pdf',
     '.github/scripts/audit_tree.py','.github/workflows/sync-public-release.yml',
-    *('docs/images/'+name+'.png' for name in ['method','objectives','qubo_quality','qubo_runtime','hubo_quality','hubo_runtime']),
+    *('docs/images/'+name+'.png' for name in ['method','objectives','qubo_quality','qubo_runtime']),
     *('src/fem_hypergraph_partition/'+name+'.py' for name in ['__init__','api','model','reference','educational','cli'])}
 
 

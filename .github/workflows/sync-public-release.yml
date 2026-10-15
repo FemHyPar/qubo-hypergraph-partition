@@ -1,7 +1,7 @@
 name: Sync clean public release
 on:
   push:
-    branches: [public-release]
+    branches: [qubo-public-release]
   workflow_dispatch:
 permissions:
   contents: read
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sync:
-    if: github.ref == 'refs/heads/public-release' && github.repository == 'yao-baijian/Hybird-Ising-Partition'
+    if: github.ref == 'refs/heads/qubo-public-release' && github.repository == 'yao-baijian/Hybird-Ising-Partition'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -40,7 +40,7 @@ jobs:
           git init release
           cd release
           git remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
-          git fetch --no-tags origin refs/heads/public-release
+          git fetch --no-tags origin refs/heads/qubo-public-release
           git checkout --detach FETCH_HEAD
           python3 .github/scripts/audit_tree.py
           python3 -m pip install '.[test]'
