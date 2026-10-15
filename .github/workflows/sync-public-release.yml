@@ -51,10 +51,10 @@ jobs:
             curl -fsSL https://api.github.com/meta | python3 -c 'import json,sys; print("\n".join("github.com "+key for key in json.load(sys.stdin)["ssh_keys"]))' > "$hostsfile"
             export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$hostsfile"
             unset GIT_ASKPASS SYNC_GIT_TOKEN
-            git remote add public git@github.com:yao-baijian/qubo-hypergraph-partition.git
+            git remote add public git@github.com:FemHyPar/qubo-hypergraph-partition.git
           elif [ -n "$PUBLIC_RELEASE_TOKEN" ]; then
             export SYNC_GIT_TOKEN="$PUBLIC_RELEASE_TOKEN"
-            git remote add public https://github.com/yao-baijian/qubo-hypergraph-partition.git
+            git remote add public https://github.com/FemHyPar/qubo-hypergraph-partition.git
           else
             echo '::error::Configure PUBLIC_RELEASE_SSH_KEY or PUBLIC_RELEASE_TOKEN in the private repository.'
             exit 1
