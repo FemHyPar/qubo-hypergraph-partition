@@ -19,9 +19,29 @@ def test_qubo_truth_table(epsilon):
         encoded = model.encode(x)
         actual = score(graph, x, epsilon)
         distance = max(model.lower-sum(x), 0, sum(x)-model.upper)
-        assert model.energy(encoded) == actual['cut']+model.penalty*distance**2
+        penalty=(sum(x)-model.lower)*(sum(x)-model.upper) if epsilon==0 else distance**2
+        assert model.energy(encoded) == actual['cut']+model.penalty*penalty
         tail_min = min(model.energy((*x,*tail)) for tail in product([0,1], repeat=model.variables-5))
         assert tail_min == model.energy(encoded)
+
+
+def test_fp32_protocol_requires_matching_engine(monkeypatch):
+    import fem_hypergraph_partition.api as api
+    monkeypatch.setattr(api.importlib,'import_module',lambda name:SimpleNamespace())
+    with pytest.raises(RuntimeError,match='FP32 paper protocol'):
+        api.partition_fp32(Hypergraph(6,((0,1,2),(3,4,5),(2,3))))
+
+
+def test_compiled_fp32_policy_when_installed():
+    engine=pytest.importorskip('fem_hypergraph_partition._engine.entry')
+    if not callable(getattr(engine,'protocol_fp32',None)):pytest.skip('FP32 backend not installed')
+    from fem_hypergraph_partition import partition_fp32
+    graph=Hypergraph(24,tuple(tuple((i+j)%24 for j in range(3)) for i in range(24)))
+    for epsilon in [0.,.03]:
+        result=partition_fp32(graph,epsilon=epsilon,steps=64,cold=64,capture=False)
+        assert result['precision']=='float32' and result['replicas']==1
+        assert result['protocol']['name']=='paper-qubo-fp32-v2'
+        assert all(result[k]==v for k,v in score(graph,result['partition'],epsilon).items())
 
 
 def test_readout_is_independently_scored_and_reproducible():

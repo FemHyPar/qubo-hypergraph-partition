@@ -1,0 +1,2414 @@
+{
+  "version": 3,
+  "qubo": [
+    {
+      "instance": "ISPD98_ibm01.hgr",
+      "input_sha256": "40f7f7c4dfd96c06b0570f696e67b9c667ac2cbdf4d0858da5e690f4f4d5ac72",
+      "n": 12752,
+      "m": 14111,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 325.0,
+            "imbalance_percent": 0.0,
+            "seconds": 25.34734664465941
+          },
+          "kahypar": {
+            "cut": 287,
+            "imbalance_percent": 0.0,
+            "seconds": 128.67786453897133
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 368,
+            "imbalance_percent": 0.9880803011292238,
+            "seconds": 20.726331771162222
+          },
+          "kahypar": {
+            "cut": 220,
+            "imbalance_percent": 0.4705144291091701,
+            "seconds": 64.31918608800333
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 335,
+            "imbalance_percent": 2.9642409033876937,
+            "seconds": 21.976763980273972
+          },
+          "kahypar": {
+            "cut": 202,
+            "imbalance_percent": 2.7603513174403904,
+            "seconds": 64.6675896467641
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm02.hgr",
+      "input_sha256": "c0ef55ce884281a767d92f69226f7b4229fb93f16607d9213a717b15c2a7ed56",
+      "n": 19601,
+      "m": 19584,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 477.0,
+            "imbalance_percent": 0.0,
+            "seconds": 31.415303693975147
+          },
+          "kahypar": {
+            "cut": 367,
+            "imbalance_percent": 0.0,
+            "seconds": 128.30026172893122
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 454,
+            "imbalance_percent": 0.989694929088869,
+            "seconds": 27.518556830364105
+          },
+          "kahypar": {
+            "cut": 350,
+            "imbalance_percent": 0.5203550658096079,
+            "seconds": 64.60983436199604
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 420,
+            "imbalance_percent": 2.9996939087848284,
+            "seconds": 29.464241860325274
+          },
+          "kahypar": {
+            "cut": 337,
+            "imbalance_percent": 2.9894908682787547,
+            "seconds": 64.43609355390072
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm03.hgr",
+      "input_sha256": "01ff59ff0acef0bb0371496198cb1f7a8bd0bdabddce2d471703a4585ad086b3",
+      "n": 23136,
+      "m": 27401,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1171.0,
+            "imbalance_percent": 0.0,
+            "seconds": 33.18825142604328
+          },
+          "kahypar": {
+            "cut": 1247,
+            "imbalance_percent": 0.0,
+            "seconds": 128.60782097699848
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1160,
+            "imbalance_percent": 0.9941217150760684,
+            "seconds": 29.22590232181392
+          },
+          "kahypar": {
+            "cut": 962,
+            "imbalance_percent": 0.0,
+            "seconds": 64.14586661000067
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1143,
+            "imbalance_percent": 2.9391424619640283,
+            "seconds": 29.79385834380082
+          },
+          "kahypar": {
+            "cut": 957,
+            "imbalance_percent": 0.19882434301521368,
+            "seconds": 64.51024404700001
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm04.hgr",
+      "input_sha256": "7a07025c701730b939909cccc12a4c42356b7e7537eabf568c4d29c050fc9993",
+      "n": 27507,
+      "m": 31970,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 621.0,
+            "imbalance_percent": 0.0,
+            "seconds": 34.91202576046635
+          },
+          "kahypar": {
+            "cut": 696,
+            "imbalance_percent": 0.0,
+            "seconds": 128.66645774804056
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 636,
+            "imbalance_percent": 0.9960738694198001,
+            "seconds": 31.204128183962894
+          },
+          "kahypar": {
+            "cut": 598,
+            "imbalance_percent": 0.9960738694198001,
+            "seconds": 64.22920982300275
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 609,
+            "imbalance_percent": 2.995492220444951,
+            "seconds": 33.00310978254129
+          },
+          "kahypar": {
+            "cut": 582,
+            "imbalance_percent": 1.8976297804275122,
+            "seconds": 65.0973239550367
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm05.hgr",
+      "input_sha256": "060c25fd884a8d486b09c57a6cb92237ad18a7b54a07b46cd6d52d8a7cb9fba9",
+      "n": 29347,
+      "m": 28446,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1901.0,
+            "imbalance_percent": 0.0,
+            "seconds": 35.74840395532374
+          },
+          "kahypar": {
+            "cut": 1807,
+            "imbalance_percent": 0.0,
+            "seconds": 128.49603303099866
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1896,
+            "imbalance_percent": 0.4020716914270084,
+            "seconds": 32.00066857233469
+          },
+          "kahypar": {
+            "cut": 1725,
+            "imbalance_percent": 0.0,
+            "seconds": 64.25957739500154
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1895,
+            "imbalance_percent": 0.4497751124437732,
+            "seconds": 33.430581469627214
+          },
+          "kahypar": {
+            "cut": 1719,
+            "imbalance_percent": 1.0358457135068777,
+            "seconds": 64.30122553999536
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm06.hgr",
+      "input_sha256": "7446d95d8e4eb72025499889f18792afd73a10f6ddc2f3477e4bb285ad9e08bf",
+      "n": 32498,
+      "m": 34826,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1080.0,
+            "imbalance_percent": 0.0,
+            "seconds": 37.3086483399602
+          },
+          "kahypar": {
+            "cut": 1335,
+            "imbalance_percent": 0.0,
+            "seconds": 129.21585086314008
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1078,
+            "imbalance_percent": 0.5600344636593091,
+            "seconds": 34.35081323983468
+          },
+          "kahypar": {
+            "cut": 1023,
+            "imbalance_percent": 0.9231337313065469,
+            "seconds": 64.66379172499728
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1080,
+            "imbalance_percent": 0.8923626069296642,
+            "seconds": 35.31915980020858
+          },
+          "kahypar": {
+            "cut": 988,
+            "imbalance_percent": 1.9939688596221306,
+            "seconds": 66.4893631497398
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm07.hgr",
+      "input_sha256": "b37ba1491b17fc87ff7f70e0a864340c30d5f53c38527379354313ebf81a266f",
+      "n": 45926,
+      "m": 48117,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1163.0,
+            "imbalance_percent": 0.0,
+            "seconds": 49.786401453995495
+          },
+          "kahypar": {
+            "cut": 1428,
+            "imbalance_percent": 0.0,
+            "seconds": 128.72677238500182
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1144,
+            "imbalance_percent": 0.9972564560379649,
+            "seconds": 48.054361326256185
+          },
+          "kahypar": {
+            "cut": 948,
+            "imbalance_percent": 0.9972564560379649,
+            "seconds": 64.39604634399439
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1206,
+            "imbalance_percent": 2.996124199799688,
+            "seconds": 49.87927468038106
+          },
+          "kahypar": {
+            "cut": 910,
+            "imbalance_percent": 2.991769368113917,
+            "seconds": 65.2517424530015
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm08.hgr",
+      "input_sha256": "0f8e40d936d923eee2d422212563a2955bd840f57a0dcc46d853b03773a8d705",
+      "n": 51309,
+      "m": 50513,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1238.0,
+            "imbalance_percent": 0.0,
+            "seconds": 105.67671260023053
+          },
+          "kahypar": {
+            "cut": 1200,
+            "imbalance_percent": 0.0,
+            "seconds": 128.36591804400086
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1181,
+            "imbalance_percent": 0.9978561683882337,
+            "seconds": 103.51042617549683
+          },
+          "kahypar": {
+            "cut": 1140,
+            "imbalance_percent": 0.0,
+            "seconds": 64.81567470500158
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1211,
+            "imbalance_percent": 2.27635938413564,
+            "seconds": 105.70542715508054
+          },
+          "kahypar": {
+            "cut": 1140,
+            "imbalance_percent": 0.0,
+            "seconds": 64.52106240800276
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm09.hgr",
+      "input_sha256": "e9a7ec27092f020203f96ff46d9e9883cfba4b5293dd5f5b81a7840cf3e2f32d",
+      "n": 53395,
+      "m": 60902,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 756.0,
+            "imbalance_percent": 0.0,
+            "seconds": 59.73976542087621
+          },
+          "kahypar": {
+            "cut": 703,
+            "imbalance_percent": 0.0,
+            "seconds": 128.66733729559928
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 723,
+            "imbalance_percent": 0.9963293130571538,
+            "seconds": 58.01923124896712
+          },
+          "kahypar": {
+            "cut": 627,
+            "imbalance_percent": 0.9738557195295483,
+            "seconds": 64.48446108499775
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 685,
+            "imbalance_percent": 2.9964791370140187,
+            "seconds": 59.27783795711002
+          },
+          "kahypar": {
+            "cut": 620,
+            "imbalance_percent": 2.663120833021204,
+            "seconds": 64.66090187523514
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm10.hgr",
+      "input_sha256": "52092243f7efb6e1954ed7fa327f2dae4f3bed003e76a58b86682eb8a9c1067b",
+      "n": 69429,
+      "m": 75196,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2070.0,
+            "imbalance_percent": 0.0,
+            "seconds": 84.20175030324026
+          },
+          "kahypar": {
+            "cut": 1626,
+            "imbalance_percent": 0.0,
+            "seconds": 129.23455971999647
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1732,
+            "imbalance_percent": 0.7460751836382062,
+            "seconds": 82.91100114080473
+          },
+          "kahypar": {
+            "cut": 1340,
+            "imbalance_percent": 0.0,
+            "seconds": 64.42509885400068
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1720,
+            "imbalance_percent": 0.6682990061932959,
+            "seconds": 85.30675601176335
+          },
+          "kahypar": {
+            "cut": 1333,
+            "imbalance_percent": 0.34855249891978524,
+            "seconds": 64.85198204100016
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm11.hgr",
+      "input_sha256": "07f178dd9ad6a0b1a88e208d2c8e03764b26ca65fe9cf608d9ae541512ed4724",
+      "n": 70558,
+      "m": 81454,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1581.0,
+            "imbalance_percent": 0.0,
+            "seconds": 78.64978636477463
+          },
+          "kahypar": {
+            "cut": 1671,
+            "imbalance_percent": 0.0,
+            "seconds": 128.54670573799376
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1458,
+            "imbalance_percent": 0.997760707503037,
+            "seconds": 77.92787568040512
+          },
+          "kahypar": {
+            "cut": 1079,
+            "imbalance_percent": 0.98925706510955,
+            "seconds": 64.41490680599964
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1417,
+            "imbalance_percent": 2.9989512174381394,
+            "seconds": 80.82353776928358
+          },
+          "kahypar": {
+            "cut": 1062,
+            "imbalance_percent": 2.891238413787245,
+            "seconds": 64.89878153299651
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm12.hgr",
+      "input_sha256": "218d3a94ea837d616ab37aedefd485ef737b9af712c93e86e178bc877f703879",
+      "n": 71076,
+      "m": 77240,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2443.0,
+            "imbalance_percent": 0.0,
+            "seconds": 91.23512162526458
+          },
+          "kahypar": {
+            "cut": 3138,
+            "imbalance_percent": 0.0,
+            "seconds": 128.8130561937578
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 2457,
+            "imbalance_percent": 0.7878890202037248,
+            "seconds": 90.88078588784992
+          },
+          "kahypar": {
+            "cut": 1996,
+            "imbalance_percent": 0.9792334965389227,
+            "seconds": 66.19057810799859
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 2492,
+            "imbalance_percent": 2.8954921492486907,
+            "seconds": 91.71958177655324
+          },
+          "kahypar": {
+            "cut": 1936,
+            "imbalance_percent": 2.4762226349259953,
+            "seconds": 66.3530234368518
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm13.hgr",
+      "input_sha256": "247a13e2006a18038ab28b6a6f55763ef312a28200fd510c724d64eeff621755",
+      "n": 84199,
+      "m": 99666,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2544.0,
+            "imbalance_percent": 0.0,
+            "seconds": 103.27001599241339
+          },
+          "kahypar": {
+            "cut": 1204,
+            "imbalance_percent": 0.0,
+            "seconds": 130.32615856399934
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 2508,
+            "imbalance_percent": 1.0000000000000009,
+            "seconds": 103.87361496705853
+          },
+          "kahypar": {
+            "cut": 848,
+            "imbalance_percent": 0.40380047505939043,
+            "seconds": 65.48337892800191
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1921,
+            "imbalance_percent": 3.0000000000000027,
+            "seconds": 106.56441091858142
+          },
+          "kahypar": {
+            "cut": 848,
+            "imbalance_percent": 0.40380047505939043,
+            "seconds": 64.40040890900127
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm14.hgr",
+      "input_sha256": "df7aa2df24119cc9df838228a352e3e84d817860d24449fea2e9a11c7258187f",
+      "n": 147605,
+      "m": 152772,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 3259.0,
+            "imbalance_percent": 0.0,
+            "seconds": 212.18249759184255
+          },
+          "kahypar": {
+            "cut": 2273,
+            "imbalance_percent": 0.0,
+            "seconds": 128.96726707399648
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 3088,
+            "imbalance_percent": 0.9999593512458826,
+            "seconds": 219.53338568903564
+          },
+          "kahypar": {
+            "cut": 1849,
+            "imbalance_percent": 0.0,
+            "seconds": 66.70499727100105
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 3577,
+            "imbalance_percent": 2.999878053737648,
+            "seconds": 220.02344611533044
+          },
+          "kahypar": {
+            "cut": 1849,
+            "imbalance_percent": 0.0,
+            "seconds": 65.70867977600574
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm15.hgr",
+      "input_sha256": "b596dbb3f6738dfd8543d5e684287c3ddb93b2a8ced4b4f1fc1ceb7a6ac0bd32",
+      "n": 161570,
+      "m": 186608,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 4573.0,
+            "imbalance_percent": 0.0,
+            "seconds": 208.9660329048129
+          },
+          "kahypar": {
+            "cut": 4554,
+            "imbalance_percent": 0.0,
+            "seconds": 65.62842072080821
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 4721,
+            "imbalance_percent": 0.9989478244723626,
+            "seconds": 214.57250305661728
+          },
+          "kahypar": {
+            "cut": 2839,
+            "imbalance_percent": 0.7216686266014793,
+            "seconds": 64.58571897700313
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 4145,
+            "imbalance_percent": 0.5855047347898656,
+            "seconds": 216.806342161035
+          },
+          "kahypar": {
+            "cut": 2741,
+            "imbalance_percent": 1.8679210249427536,
+            "seconds": 69.89345390535891
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm16.hgr",
+      "input_sha256": "8593950b202050f35852b8d6e1ba2193c995cbfe96239ee494a068cb2e49dd08",
+      "n": 183484,
+      "m": 190048,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2907.0,
+            "imbalance_percent": 0.0,
+            "seconds": 297.76600392915134
+          },
+          "kahypar": {
+            "cut": 4044,
+            "imbalance_percent": 0.0,
+            "seconds": 136.645141641995
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 3770,
+            "imbalance_percent": 0.999542194414782,
+            "seconds": 304.08575053194363
+          },
+          "kahypar": {
+            "cut": 2117,
+            "imbalance_percent": 0.831680146497793,
+            "seconds": 68.51376865299972
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 3544,
+            "imbalance_percent": 2.745743498070685,
+            "seconds": 307.3237183024903
+          },
+          "kahypar": {
+            "cut": 1969,
+            "imbalance_percent": 2.940855878441706,
+            "seconds": 72.01967853800306
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm17.hgr",
+      "input_sha256": "2a8fef8fe02d93e170ba81e1dce2524772f6e365f51ea381b7d7c0f69a7c5764",
+      "n": 185495,
+      "m": 189581,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 3446.0,
+            "imbalance_percent": 0.0,
+            "seconds": 215.5192364611721
+          },
+          "kahypar": {
+            "cut": 3390,
+            "imbalance_percent": 0.0,
+            "seconds": 144.27974619716406
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 3366,
+            "imbalance_percent": 0.9994824686246684,
+            "seconds": 221.60108278869302
+          },
+          "kahypar": {
+            "cut": 2351,
+            "imbalance_percent": 0.9649803769353538,
+            "seconds": 66.22707891400205
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 2784,
+            "imbalance_percent": 2.999525596239283,
+            "seconds": 223.7531068920216
+          },
+          "kahypar": {
+            "cut": 2310,
+            "imbalance_percent": 2.5995169707163424,
+            "seconds": 65.18880025809631
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ISPD98_ibm18.hgr",
+      "input_sha256": "68e3182e1714e5a6ecdad887e5fb30fa3d87a8409a543716928d56dff74323d9",
+      "n": 210613,
+      "m": 201920,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2197.0,
+            "imbalance_percent": 0.0,
+            "seconds": 252.76199594504578
+          },
+          "kahypar": {
+            "cut": 2772,
+            "imbalance_percent": 0.0,
+            "seconds": 130.8798994280005
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 2231,
+            "imbalance_percent": 0.5365265366974681,
+            "seconds": 260.8346671433319
+          },
+          "kahypar": {
+            "cut": 1961,
+            "imbalance_percent": 0.0,
+            "seconds": 67.02049502299633
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 2326,
+            "imbalance_percent": 2.9893549336701186,
+            "seconds": 263.8507899296601
+          },
+          "kahypar": {
+            "cut": 1915,
+            "imbalance_percent": 1.3550856068447414,
+            "seconds": 67.19678575900252
+          }
+        }
+      ]
+    },
+    {
+      "instance": "2cubes_sphere.mtx.hgr",
+      "input_sha256": "b7c96430468679667241324442c07c4d162e534d47e037b17d5715c26e5a042f",
+      "n": 101492,
+      "m": 101492,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 4125.0,
+            "imbalance_percent": 0.0,
+            "seconds": 132.93650042734953
+          },
+          "kahypar": {
+            "cut": 6892,
+            "imbalance_percent": 0.0,
+            "seconds": 129.14349717693403
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 3991,
+            "imbalance_percent": 0.9892405312734054,
+            "seconds": 134.23112754527392
+          },
+          "kahypar": {
+            "cut": 3922,
+            "imbalance_percent": 0.9931817286091604,
+            "seconds": 67.97242968700448
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 3951,
+            "imbalance_percent": 2.999251172506212,
+            "seconds": 134.80412103798153
+          },
+          "kahypar": {
+            "cut": 3884,
+            "imbalance_percent": 2.9933393765025906,
+            "seconds": 155.8045842438005
+          }
+        }
+      ]
+    },
+    {
+      "instance": "G2_circuit.mtx.hgr",
+      "input_sha256": "125cb1a7898335dff146ece8dfa6499de16d6f91e9376c04a963e817de5a3490",
+      "n": 150102,
+      "m": 150102,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 624.0,
+            "imbalance_percent": 0.0,
+            "seconds": 163.51773335336475
+          },
+          "kahypar": {
+            "cut": 1144,
+            "imbalance_percent": 0.0,
+            "seconds": 129.09264742489904
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 624,
+            "imbalance_percent": 0.779469960426904,
+            "seconds": 170.21048706787406
+          },
+          "kahypar": {
+            "cut": 624,
+            "imbalance_percent": 0.0,
+            "seconds": 64.90778060699813
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 624,
+            "imbalance_percent": 0.779469960426904,
+            "seconds": 173.41529275354696
+          },
+          "kahypar": {
+            "cut": 624,
+            "imbalance_percent": 0.0,
+            "seconds": 67.27377127390355
+          }
+        }
+      ]
+    },
+    {
+      "instance": "PGPgiantcompo.mtx.hgr",
+      "input_sha256": "76a7ef51fa1637e7977fddc2ce7f89b2c2cb05d3455c01274ac66fa149de8e5a",
+      "n": 10680,
+      "m": 10680,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 463.0,
+            "imbalance_percent": 0.0,
+            "seconds": 24.87338114884915
+          },
+          "kahypar": {
+            "cut": 396,
+            "imbalance_percent": 0.0,
+            "seconds": 128.56931820930913
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 467,
+            "imbalance_percent": 0.44943820224718767,
+            "seconds": 20.572037662670482
+          },
+          "kahypar": {
+            "cut": 352,
+            "imbalance_percent": 0.0,
+            "seconds": 64.31469618499978
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 457,
+            "imbalance_percent": 2.9588014981273503,
+            "seconds": 21.608489777252544
+          },
+          "kahypar": {
+            "cut": 350,
+            "imbalance_percent": 0.0,
+            "seconds": 64.39974536467344
+          }
+        }
+      ]
+    },
+    {
+      "instance": "airfoil_2d.mtx.hgr",
+      "input_sha256": "186b5276e1ba4f5df4b122578233496e890f3806ac92aee18fb69d0832078f2f",
+      "n": 14214,
+      "m": 14214,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 375.0,
+            "imbalance_percent": 0.0,
+            "seconds": 28.33451275659172
+          },
+          "kahypar": {
+            "cut": 372,
+            "imbalance_percent": 0.0,
+            "seconds": 128.34718040799999
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 373,
+            "imbalance_percent": 0.999015055579,
+            "seconds": 24.236272541726066
+          },
+          "kahypar": {
+            "cut": 328,
+            "imbalance_percent": 0.0,
+            "seconds": 64.16073773300013
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 342,
+            "imbalance_percent": 2.9970451667370224,
+            "seconds": 24.807464269375487
+          },
+          "kahypar": {
+            "cut": 324,
+            "imbalance_percent": 2.898550724637672,
+            "seconds": 64.2328031299985
+          }
+        }
+      ]
+    },
+    {
+      "instance": "bcsstk29.mtx.hgr",
+      "input_sha256": "a7e86692a12cd300b248e13bd0f9315f4700668568f81e26b8c89d0978613d2c",
+      "n": 13992,
+      "m": 13992,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 372.0,
+            "imbalance_percent": 0.0,
+            "seconds": 32.470499668874254
+          },
+          "kahypar": {
+            "cut": 360,
+            "imbalance_percent": 0.0,
+            "seconds": 129.15366731071845
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 360,
+            "imbalance_percent": 0.17152658662091813,
+            "seconds": 28.11325506646972
+          },
+          "kahypar": {
+            "cut": 360,
+            "imbalance_percent": 0.0,
+            "seconds": 64.2694688929987
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 360,
+            "imbalance_percent": 0.17152658662091813,
+            "seconds": 29.453532164123317
+          },
+          "kahypar": {
+            "cut": 360,
+            "imbalance_percent": 0.0,
+            "seconds": 64.40834979899228
+          }
+        }
+      ]
+    },
+    {
+      "instance": "ca-CondMat.mtx.hgr",
+      "input_sha256": "33fd44aec31d911e9665906ff69edc1ea90c026ebab27dd59989f94b061706e5",
+      "n": 23133,
+      "m": 23133,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 4473.0,
+            "imbalance_percent": 0.0,
+            "seconds": 40.98865047749132
+          },
+          "kahypar": {
+            "cut": 4202,
+            "imbalance_percent": 0.0,
+            "seconds": 128.84788838999884
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 4406,
+            "imbalance_percent": 0.9942076597216243,
+            "seconds": 36.70572642982006
+          },
+          "kahypar": {
+            "cut": 3918,
+            "imbalance_percent": 0.9164001037434089,
+            "seconds": 65.5822883419969
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 4215,
+            "imbalance_percent": 2.999913547160027,
+            "seconds": 37.521944554988295
+          },
+          "kahypar": {
+            "cut": 3855,
+            "imbalance_percent": 2.999913547160027,
+            "seconds": 66.06769343599808
+          }
+        }
+      ]
+    },
+    {
+      "instance": "cfd1.mtx.hgr",
+      "input_sha256": "bbf24e26d047dcfbc11feefe1db1ee90bbd99a325fc03e716b1e949ccc684490",
+      "n": 70656,
+      "m": 70656,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 2064.0,
+            "imbalance_percent": 0.0,
+            "seconds": 94.28884915343951
+          },
+          "kahypar": {
+            "cut": 3121,
+            "imbalance_percent": 0.0,
+            "seconds": 130.67883125300432
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 2174,
+            "imbalance_percent": 0.9992074275362306,
+            "seconds": 93.72892497421708
+          },
+          "kahypar": {
+            "cut": 1564,
+            "imbalance_percent": 0.7246376811594235,
+            "seconds": 64.88797604299907
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 2250,
+            "imbalance_percent": 2.997622282608692,
+            "seconds": 95.11901876644697
+          },
+          "kahypar": {
+            "cut": 1564,
+            "imbalance_percent": 0.7246376811594235,
+            "seconds": 64.73362181500124
+          }
+        }
+      ]
+    },
+    {
+      "instance": "finan512.mtx.hgr",
+      "input_sha256": "74cd54287d2b51f44defc7c33a5479639fdf517de430ff04006c6ed6b51e4877",
+      "n": 74752,
+      "m": 74752,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 146.0,
+            "imbalance_percent": 0.0,
+            "seconds": 86.45818750136823
+          },
+          "kahypar": {
+            "cut": 169,
+            "imbalance_percent": 0.0,
+            "seconds": 128.59417508495972
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 146,
+            "imbalance_percent": 0.0,
+            "seconds": 86.10528755137057
+          },
+          "kahypar": {
+            "cut": 146,
+            "imbalance_percent": 0.0,
+            "seconds": 64.52484179499879
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 146,
+            "imbalance_percent": 0.0,
+            "seconds": 88.29849411822215
+          },
+          "kahypar": {
+            "cut": 146,
+            "imbalance_percent": 0.0,
+            "seconds": 64.52145843626931
+          }
+        }
+      ]
+    },
+    {
+      "instance": "parabolic_fem.mtx.hgr",
+      "input_sha256": "023337236e471ad18a526cdf997ea4d854bccc7fa7e50bd30042c18358c73030",
+      "n": 525825,
+      "m": 525825,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 1026.0,
+            "imbalance_percent": 0.0,
+            "seconds": 1971.6565184493957
+          },
+          "kahypar": {
+            "cut": 1256,
+            "imbalance_percent": 0.0,
+            "seconds": 133.58068400199772
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 1026,
+            "imbalance_percent": 0.013312388508746054,
+            "seconds": 2004.514734351862
+          },
+          "kahypar": {
+            "cut": 1026,
+            "imbalance_percent": 0.0,
+            "seconds": 67.5931490840012
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 1026,
+            "imbalance_percent": 0.013312388508746054,
+            "seconds": 2007.9118702778069
+          },
+          "kahypar": {
+            "cut": 1026,
+            "imbalance_percent": 0.0,
+            "seconds": 80.87035889300023
+          }
+        }
+      ]
+    },
+    {
+      "instance": "scircuit.mtx.hgr",
+      "input_sha256": "01d5d8a76a8b33f6afdf3e84a5854349fcad76fd9c4c296334dcd5e414250b01",
+      "n": 170998,
+      "m": 170998,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 318.0,
+            "imbalance_percent": 0.0,
+            "seconds": 3352.185163140799
+          },
+          "kahypar": {
+            "cut": 68,
+            "imbalance_percent": 0.0,
+            "seconds": 132.22747851299937
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 277,
+            "imbalance_percent": 0.9988420917203644,
+            "seconds": 3419.79884653123
+          },
+          "kahypar": {
+            "cut": 46,
+            "imbalance_percent": 0.5134562977344714,
+            "seconds": 65.111276317999
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 46,
+            "imbalance_percent": 2.4514906607094877,
+            "seconds": 3744.5837372769965
+          },
+          "kahypar": {
+            "cut": 42,
+            "imbalance_percent": 2.2725411993122835,
+            "seconds": 66.06567536199873
+          }
+        }
+      ]
+    },
+    {
+      "instance": "shallow_water2.mtx.hgr",
+      "input_sha256": "baf059e8d81cafebe7ee7953b51f825f4a7b66f26e692e216fa306846405843e",
+      "n": 81920,
+      "m": 81920,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 768.0,
+            "imbalance_percent": 0.0,
+            "seconds": 74.40829054619098
+          },
+          "kahypar": {
+            "cut": 909,
+            "imbalance_percent": 0.0,
+            "seconds": 128.98927268800617
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 768,
+            "imbalance_percent": 0.7641601562500044,
+            "seconds": 73.7498451231877
+          },
+          "kahypar": {
+            "cut": 640,
+            "imbalance_percent": 0.0,
+            "seconds": 64.73336055199616
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 768,
+            "imbalance_percent": 0.6005859375000089,
+            "seconds": 75.29889158326114
+          },
+          "kahypar": {
+            "cut": 640,
+            "imbalance_percent": 0.0,
+            "seconds": 64.84722692499781
+          }
+        }
+      ]
+    },
+    {
+      "instance": "thermal1.mtx.hgr",
+      "input_sha256": "57cfc226ad40b687050842b617ae7301ee3bf61203c88c61ce15c73dc8d9120f",
+      "n": 82654,
+      "m": 82654,
+      "settings": [
+        {
+          "allowed_imbalance_percent": 0,
+          "fem": {
+            "cut": 255.0,
+            "imbalance_percent": 0.0,
+            "seconds": 106.92665386114095
+          },
+          "kahypar": {
+            "cut": 291,
+            "imbalance_percent": 0.0,
+            "seconds": 128.472366232
+          }
+        },
+        {
+          "allowed_imbalance_percent": 1,
+          "fem": {
+            "cut": 257,
+            "imbalance_percent": 0.10162847533090602,
+            "seconds": 105.67506412191142
+          },
+          "kahypar": {
+            "cut": 239,
+            "imbalance_percent": 0.11130737774336374,
+            "seconds": 64.89663362799911
+          }
+        },
+        {
+          "allowed_imbalance_percent": 3,
+          "fem": {
+            "cut": 257,
+            "imbalance_percent": 0.09920874972777494,
+            "seconds": 107.02680995881383
+          },
+          "kahypar": {
+            "cut": 239,
+            "imbalance_percent": 0.11372710334647262,
+            "seconds": 66.02065307367593
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Original frozen 30-input FP64 0/1/3% study retained in qubo; separate best-observed strict envelope and complete 13-input FP32 follow-up are explicit. No quantum advantage or universal improvement claimed.",
+  "solver": "Research FEM, not the public CPU reference or educational Adam solver.",
+  "timing": "FEM on A100-PCIE-40GB; KaHyPar one i7-12700 CPU thread, differing soft budgets. FEM component sums include certified modes, setup, search and all-replica descent.",
+  "source_summary_sha256": {
+    "experiments/results/matched30_2026-10-11/summary.json": "5a49f8bd5c48bc005b35368038691131210d19679d6f3cb4381f6aeae2f54bca"
+  },
+  "strict_best_observed": {
+    "ISPD98_ibm01.hgr": {
+      "cut": 295,
+      "source": "follow-up oriented batch 1"
+    },
+    "ISPD98_ibm02.hgr": {
+      "cut": 477,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm03.hgr": {
+      "cut": 1171,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm04.hgr": {
+      "cut": 621,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm05.hgr": {
+      "cut": 1901,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm06.hgr": {
+      "cut": 1080,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm07.hgr": {
+      "cut": 1163,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm08.hgr": {
+      "cut": 1238,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm09.hgr": {
+      "cut": 755,
+      "source": "follow-up symmetric batch 0"
+    },
+    "ISPD98_ibm10.hgr": {
+      "cut": 2070,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm11.hgr": {
+      "cut": 1581,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm12.hgr": {
+      "cut": 2443,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm13.hgr": {
+      "cut": 1165,
+      "source": "follow-up symmetric batch 0"
+    },
+    "ISPD98_ibm14.hgr": {
+      "cut": 2808,
+      "source": "follow-up symmetric batch 0"
+    },
+    "ISPD98_ibm15.hgr": {
+      "cut": 4573,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm16.hgr": {
+      "cut": 2907,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm17.hgr": {
+      "cut": 3446,
+      "source": "original FP64 policy"
+    },
+    "ISPD98_ibm18.hgr": {
+      "cut": 1884,
+      "source": "follow-up oriented batch 0"
+    },
+    "2cubes_sphere.mtx.hgr": {
+      "cut": 4125,
+      "source": "original FP64 policy"
+    },
+    "G2_circuit.mtx.hgr": {
+      "cut": 624,
+      "source": "original FP64 policy"
+    },
+    "PGPgiantcompo.mtx.hgr": {
+      "cut": 463,
+      "source": "original FP64 policy"
+    },
+    "airfoil_2d.mtx.hgr": {
+      "cut": 375,
+      "source": "original FP64 policy"
+    },
+    "bcsstk29.mtx.hgr": {
+      "cut": 372,
+      "source": "original FP64 policy"
+    },
+    "ca-CondMat.mtx.hgr": {
+      "cut": 4362,
+      "source": "follow-up oriented batch 0"
+    },
+    "cfd1.mtx.hgr": {
+      "cut": 2064,
+      "source": "original FP64 policy"
+    },
+    "finan512.mtx.hgr": {
+      "cut": 146,
+      "source": "original FP64 policy"
+    },
+    "parabolic_fem.mtx.hgr": {
+      "cut": 1026,
+      "source": "original FP64 policy"
+    },
+    "scircuit.mtx.hgr": {
+      "cut": 318,
+      "source": "original FP64 policy"
+    },
+    "shallow_water2.mtx.hgr": {
+      "cut": 768,
+      "source": "original FP64 policy"
+    },
+    "thermal1.mtx.hgr": {
+      "cut": 255,
+      "source": "original FP64 policy"
+    }
+  },
+  "strict_followup": {
+    "runs": 52,
+    "trajectories": 2496,
+    "odd_instances": 12,
+    "even_controls": 1,
+    "verified_binary_states": 7488,
+    "best_two_seed_comparison": {
+      "improved": 6,
+      "tied": 3,
+      "worsened": 3
+    },
+    "matched_seed_comparison": {
+      "improved": 11,
+      "tied": 7,
+      "worsened": 6
+    },
+    "strict_best_observed_wins": 16,
+    "selection_scope": "Lowest verified strict cut from the original policy and all four follow-up runs where performed; all 1%/3% results unchanged. This envelope is not a single-policy or equal-budget benchmark.",
+    "timing_scope": "Search loops include checkpoints; cached-mode construction, state archival and independent audits excluded. Follow-up timing cannot replace historical charged pipeline costs.",
+    "protocol": {
+      "batches": 2,
+      "arms": [
+        "oriented",
+        "symmetric"
+      ],
+      "replicas": 48,
+      "precision": "float32",
+      "steps": 3000,
+      "cold": 144,
+      "root_iterations": 64,
+      "central_root": true,
+      "selection": "minimum native cut among capacity-feasible checkpoints, both block labels accepted in both arms",
+      "endpoint": "unmodified vertex bits; exact conditional binary auxiliaries; no vertex descent"
+    },
+    "rows": [
+      {
+        "instance": "ISPD98_ibm01.hgr",
+        "n": 12752,
+        "batch": 0,
+        "seed": 1234487942,
+        "arm": "oriented",
+        "cut": 311,
+        "block_sizes": [
+          6376,
+          6376
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 3.2955458676442504,
+        "setup_seconds": 1.0120752742514014,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm01.hgr",
+        "n": 12752,
+        "batch": 0,
+        "seed": 1234487942,
+        "arm": "symmetric",
+        "cut": 311,
+        "block_sizes": [
+          6376,
+          6376
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 3.2330955918878317,
+        "setup_seconds": 0.25355177698656917,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm01.hgr",
+        "n": 12752,
+        "batch": 1,
+        "seed": 540448822,
+        "arm": "oriented",
+        "cut": 295,
+        "block_sizes": [
+          6376,
+          6376
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 3.2348961890675128,
+        "setup_seconds": 0.2518469779752195,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm01.hgr",
+        "n": 12752,
+        "batch": 1,
+        "seed": 540448822,
+        "arm": "symmetric",
+        "cut": 295,
+        "block_sizes": [
+          6376,
+          6376
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 3.236787559930235,
+        "setup_seconds": 0.2498976020142436,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm02.hgr",
+        "n": 19601,
+        "batch": 0,
+        "seed": 1934430341,
+        "arm": "oriented",
+        "cut": 484,
+        "block_sizes": [
+          9800,
+          9801
+        ],
+        "capacity_feasible_replicas": 38,
+        "search_seconds": 3.899624408222735,
+        "setup_seconds": 0.31674098689109087,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm02.hgr",
+        "n": 19601,
+        "batch": 0,
+        "seed": 1934430341,
+        "arm": "symmetric",
+        "cut": 484,
+        "block_sizes": [
+          9801,
+          9800
+        ],
+        "capacity_feasible_replicas": 38,
+        "search_seconds": 3.911295924335718,
+        "setup_seconds": 0.31846793042495847,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm02.hgr",
+        "n": 19601,
+        "batch": 1,
+        "seed": 871621916,
+        "arm": "oriented",
+        "cut": 484,
+        "block_sizes": [
+          9800,
+          9801
+        ],
+        "capacity_feasible_replicas": 37,
+        "search_seconds": 3.900754928123206,
+        "setup_seconds": 0.31304563023149967,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm02.hgr",
+        "n": 19601,
+        "batch": 1,
+        "seed": 871621916,
+        "arm": "symmetric",
+        "cut": 484,
+        "block_sizes": [
+          9800,
+          9801
+        ],
+        "capacity_feasible_replicas": 39,
+        "search_seconds": 3.9099589358083904,
+        "setup_seconds": 0.32073949463665485,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm04.hgr",
+        "n": 27507,
+        "batch": 0,
+        "seed": 2751552529,
+        "arm": "oriented",
+        "cut": 672,
+        "block_sizes": [
+          13753,
+          13754
+        ],
+        "capacity_feasible_replicas": 43,
+        "search_seconds": 5.143526091240346,
+        "setup_seconds": 0.4396867277100682,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm04.hgr",
+        "n": 27507,
+        "batch": 0,
+        "seed": 2751552529,
+        "arm": "symmetric",
+        "cut": 671,
+        "block_sizes": [
+          13754,
+          13753
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 5.147501940373331,
+        "setup_seconds": 0.4403240899555385,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm04.hgr",
+        "n": 27507,
+        "batch": 1,
+        "seed": 3227779250,
+        "arm": "oriented",
+        "cut": 672,
+        "block_sizes": [
+          13753,
+          13754
+        ],
+        "capacity_feasible_replicas": 43,
+        "search_seconds": 5.152064451947808,
+        "setup_seconds": 0.4398593548685312,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm04.hgr",
+        "n": 27507,
+        "batch": 1,
+        "seed": 3227779250,
+        "arm": "symmetric",
+        "cut": 671,
+        "block_sizes": [
+          13754,
+          13753
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 5.175597834400833,
+        "setup_seconds": 0.4400412947870791,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm05.hgr",
+        "n": 29347,
+        "batch": 0,
+        "seed": 675211383,
+        "arm": "oriented",
+        "cut": 1954,
+        "block_sizes": [
+          14673,
+          14674
+        ],
+        "capacity_feasible_replicas": 47,
+        "search_seconds": 4.592502671759576,
+        "setup_seconds": 0.41522310115396976,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm05.hgr",
+        "n": 29347,
+        "batch": 0,
+        "seed": 675211383,
+        "arm": "symmetric",
+        "cut": 1979,
+        "block_sizes": [
+          14673,
+          14674
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 4.5827033570967615,
+        "setup_seconds": 0.4162942050024867,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm05.hgr",
+        "n": 29347,
+        "batch": 1,
+        "seed": 531794969,
+        "arm": "oriented",
+        "cut": 1954,
+        "block_sizes": [
+          14673,
+          14674
+        ],
+        "capacity_feasible_replicas": 47,
+        "search_seconds": 4.590770007111132,
+        "setup_seconds": 0.41601127618923783,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm05.hgr",
+        "n": 29347,
+        "batch": 1,
+        "seed": 531794969,
+        "arm": "symmetric",
+        "cut": 1984,
+        "block_sizes": [
+          14674,
+          14673
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 4.588436352089047,
+        "setup_seconds": 0.41615137411281466,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm08.hgr",
+        "n": 51309,
+        "batch": 0,
+        "seed": 3231362686,
+        "arm": "oriented",
+        "cut": 1268,
+        "block_sizes": [
+          25654,
+          25655
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 8.290156388189644,
+        "setup_seconds": 0.6640272359363735,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm08.hgr",
+        "n": 51309,
+        "batch": 0,
+        "seed": 3231362686,
+        "arm": "symmetric",
+        "cut": 1268,
+        "block_sizes": [
+          25655,
+          25654
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 8.27047524927184,
+        "setup_seconds": 0.6683169519528747,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm08.hgr",
+        "n": 51309,
+        "batch": 1,
+        "seed": 1455716249,
+        "arm": "oriented",
+        "cut": 1268,
+        "block_sizes": [
+          25654,
+          25655
+        ],
+        "capacity_feasible_replicas": 39,
+        "search_seconds": 8.285128762945533,
+        "setup_seconds": 0.6706770337186754,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm08.hgr",
+        "n": 51309,
+        "batch": 1,
+        "seed": 1455716249,
+        "arm": "symmetric",
+        "cut": 1268,
+        "block_sizes": [
+          25654,
+          25655
+        ],
+        "capacity_feasible_replicas": 40,
+        "search_seconds": 8.281144200824201,
+        "setup_seconds": 0.6722510219551623,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm09.hgr",
+        "n": 53395,
+        "batch": 0,
+        "seed": 3181957418,
+        "arm": "oriented",
+        "cut": 756,
+        "block_sizes": [
+          26697,
+          26698
+        ],
+        "capacity_feasible_replicas": 47,
+        "search_seconds": 7.4210371701046824,
+        "setup_seconds": 0.969391583930701,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm09.hgr",
+        "n": 53395,
+        "batch": 0,
+        "seed": 3181957418,
+        "arm": "symmetric",
+        "cut": 755,
+        "block_sizes": [
+          26698,
+          26697
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 7.408709418028593,
+        "setup_seconds": 0.9728347212076187,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm09.hgr",
+        "n": 53395,
+        "batch": 1,
+        "seed": 2033723866,
+        "arm": "oriented",
+        "cut": 756,
+        "block_sizes": [
+          26697,
+          26698
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 7.387801730073988,
+        "setup_seconds": 0.7660961439833045,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm09.hgr",
+        "n": 53395,
+        "batch": 1,
+        "seed": 2033723866,
+        "arm": "symmetric",
+        "cut": 755,
+        "block_sizes": [
+          26698,
+          26697
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 7.357042682822794,
+        "setup_seconds": 0.7597098220139742,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm10.hgr",
+        "n": 69429,
+        "batch": 0,
+        "seed": 2973730231,
+        "arm": "oriented",
+        "cut": 2098,
+        "block_sizes": [
+          34714,
+          34715
+        ],
+        "capacity_feasible_replicas": 43,
+        "search_seconds": 9.383271427825093,
+        "setup_seconds": 0.9301895629614592,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm10.hgr",
+        "n": 69429,
+        "batch": 0,
+        "seed": 2973730231,
+        "arm": "symmetric",
+        "cut": 2096,
+        "block_sizes": [
+          34714,
+          34715
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 9.38753477903083,
+        "setup_seconds": 0.9319904688745737,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm10.hgr",
+        "n": 69429,
+        "batch": 1,
+        "seed": 1033281663,
+        "arm": "oriented",
+        "cut": 2098,
+        "block_sizes": [
+          34714,
+          34715
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 9.366612842772156,
+        "setup_seconds": 0.9377455278299749,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm10.hgr",
+        "n": 69429,
+        "batch": 1,
+        "seed": 1033281663,
+        "arm": "symmetric",
+        "cut": 2096,
+        "block_sizes": [
+          34714,
+          34715
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 9.449130111839622,
+        "setup_seconds": 0.931177282705903,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm13.hgr",
+        "n": 84199,
+        "batch": 0,
+        "seed": 1477772967,
+        "arm": "oriented",
+        "cut": 2553,
+        "block_sizes": [
+          42099,
+          42100
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 12.7030635997653,
+        "setup_seconds": 1.1869547781534493,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm13.hgr",
+        "n": 84199,
+        "batch": 0,
+        "seed": 1477772967,
+        "arm": "symmetric",
+        "cut": 1165,
+        "block_sizes": [
+          42100,
+          42099
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 12.73430997505784,
+        "setup_seconds": 1.2047893437556922,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm13.hgr",
+        "n": 84199,
+        "batch": 1,
+        "seed": 2843775990,
+        "arm": "oriented",
+        "cut": 2536,
+        "block_sizes": [
+          42099,
+          42100
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 12.72927058301866,
+        "setup_seconds": 1.190536383073777,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm13.hgr",
+        "n": 84199,
+        "batch": 1,
+        "seed": 2843775990,
+        "arm": "symmetric",
+        "cut": 1165,
+        "block_sizes": [
+          42100,
+          42099
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 12.731987084727734,
+        "setup_seconds": 1.2056329189799726,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm14.hgr",
+        "n": 147605,
+        "batch": 0,
+        "seed": 4026876070,
+        "arm": "oriented",
+        "cut": 3560,
+        "block_sizes": [
+          73802,
+          73803
+        ],
+        "capacity_feasible_replicas": 44,
+        "search_seconds": 21.785725503694266,
+        "setup_seconds": 1.8271160759031773,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm14.hgr",
+        "n": 147605,
+        "batch": 0,
+        "seed": 4026876070,
+        "arm": "symmetric",
+        "cut": 2808,
+        "block_sizes": [
+          73802,
+          73803
+        ],
+        "capacity_feasible_replicas": 43,
+        "search_seconds": 21.814983557909727,
+        "setup_seconds": 1.8375770542770624,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm14.hgr",
+        "n": 147605,
+        "batch": 1,
+        "seed": 2276456439,
+        "arm": "oriented",
+        "cut": 3243,
+        "block_sizes": [
+          73803,
+          73802
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 21.77757048001513,
+        "setup_seconds": 1.826075583230704,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm14.hgr",
+        "n": 147605,
+        "batch": 1,
+        "seed": 2276456439,
+        "arm": "symmetric",
+        "cut": 3243,
+        "block_sizes": [
+          73803,
+          73802
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 21.778824917040765,
+        "setup_seconds": 2.2971651391126215,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm17.hgr",
+        "n": 185495,
+        "batch": 0,
+        "seed": 1624970674,
+        "arm": "oriented",
+        "cut": 3636,
+        "block_sizes": [
+          92747,
+          92748
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 27.53995664929971,
+        "setup_seconds": 2.2808521362021565,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm17.hgr",
+        "n": 185495,
+        "batch": 0,
+        "seed": 1624970674,
+        "arm": "symmetric",
+        "cut": 3634,
+        "block_sizes": [
+          92748,
+          92747
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 27.567241742741317,
+        "setup_seconds": 2.2808116138912737,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm17.hgr",
+        "n": 185495,
+        "batch": 1,
+        "seed": 278994338,
+        "arm": "oriented",
+        "cut": 3636,
+        "block_sizes": [
+          92747,
+          92748
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 27.522521229926497,
+        "setup_seconds": 2.2679999321699142,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm17.hgr",
+        "n": 185495,
+        "batch": 1,
+        "seed": 278994338,
+        "arm": "symmetric",
+        "cut": 3634,
+        "block_sizes": [
+          92747,
+          92748
+        ],
+        "capacity_feasible_replicas": 47,
+        "search_seconds": 27.505780186038464,
+        "setup_seconds": 2.3236344349570572,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm18.hgr",
+        "n": 210613,
+        "batch": 0,
+        "seed": 2014918873,
+        "arm": "oriented",
+        "cut": 1884,
+        "block_sizes": [
+          105306,
+          105307
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 30.824895089957863,
+        "setup_seconds": 2.4362930771894753,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm18.hgr",
+        "n": 210613,
+        "batch": 0,
+        "seed": 2014918873,
+        "arm": "symmetric",
+        "cut": 1928,
+        "block_sizes": [
+          105307,
+          105306
+        ],
+        "capacity_feasible_replicas": 46,
+        "search_seconds": 30.821137075778097,
+        "setup_seconds": 2.461794933769852,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm18.hgr",
+        "n": 210613,
+        "batch": 1,
+        "seed": 2665554359,
+        "arm": "oriented",
+        "cut": 1884,
+        "block_sizes": [
+          105306,
+          105307
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 30.792514165863395,
+        "setup_seconds": 2.4866146543063223,
+        "verified_states": 144
+      },
+      {
+        "instance": "ISPD98_ibm18.hgr",
+        "n": 210613,
+        "batch": 1,
+        "seed": 2665554359,
+        "arm": "symmetric",
+        "cut": 1900,
+        "block_sizes": [
+          105307,
+          105306
+        ],
+        "capacity_feasible_replicas": 45,
+        "search_seconds": 30.86081382399425,
+        "setup_seconds": 2.4851478403434157,
+        "verified_states": 144
+      },
+      {
+        "instance": "ca-CondMat.mtx.hgr",
+        "n": 23133,
+        "batch": 0,
+        "seed": 2223340976,
+        "arm": "oriented",
+        "cut": 4362,
+        "block_sizes": [
+          11566,
+          11567
+        ],
+        "capacity_feasible_replicas": 38,
+        "search_seconds": 4.931084116920829,
+        "setup_seconds": 0.38235780224204063,
+        "verified_states": 144
+      },
+      {
+        "instance": "ca-CondMat.mtx.hgr",
+        "n": 23133,
+        "batch": 0,
+        "seed": 2223340976,
+        "arm": "symmetric",
+        "cut": 4389,
+        "block_sizes": [
+          11567,
+          11566
+        ],
+        "capacity_feasible_replicas": 39,
+        "search_seconds": 4.853765917941928,
+        "setup_seconds": 0.37767969723790884,
+        "verified_states": 144
+      },
+      {
+        "instance": "ca-CondMat.mtx.hgr",
+        "n": 23133,
+        "batch": 1,
+        "seed": 3766056291,
+        "arm": "oriented",
+        "cut": 4555,
+        "block_sizes": [
+          11566,
+          11567
+        ],
+        "capacity_feasible_replicas": 39,
+        "search_seconds": 4.848569300957024,
+        "setup_seconds": 0.3789893966168165,
+        "verified_states": 144
+      },
+      {
+        "instance": "ca-CondMat.mtx.hgr",
+        "n": 23133,
+        "batch": 1,
+        "seed": 3766056291,
+        "arm": "symmetric",
+        "cut": 4581,
+        "block_sizes": [
+          11567,
+          11566
+        ],
+        "capacity_feasible_replicas": 39,
+        "search_seconds": 4.852877296041697,
+        "setup_seconds": 0.37854389334097505,
+        "verified_states": 144
+      },
+      {
+        "instance": "parabolic_fem.mtx.hgr",
+        "n": 525825,
+        "batch": 0,
+        "seed": 2610214903,
+        "arm": "oriented",
+        "cut": 1026,
+        "block_sizes": [
+          262912,
+          262913
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 91.06450401199982,
+        "setup_seconds": 6.352395836263895,
+        "verified_states": 144
+      },
+      {
+        "instance": "parabolic_fem.mtx.hgr",
+        "n": 525825,
+        "batch": 0,
+        "seed": 2610214903,
+        "arm": "symmetric",
+        "cut": 1026,
+        "block_sizes": [
+          262912,
+          262913
+        ],
+        "capacity_feasible_replicas": 42,
+        "search_seconds": 91.31667085830122,
+        "setup_seconds": 6.3550570220686495,
+        "verified_states": 144
+      },
+      {
+        "instance": "parabolic_fem.mtx.hgr",
+        "n": 525825,
+        "batch": 1,
+        "seed": 1782227402,
+        "arm": "oriented",
+        "cut": 1026,
+        "block_sizes": [
+          262912,
+          262913
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 91.2149277520366,
+        "setup_seconds": 6.337831860408187,
+        "verified_states": 144
+      },
+      {
+        "instance": "parabolic_fem.mtx.hgr",
+        "n": 525825,
+        "batch": 1,
+        "seed": 1782227402,
+        "arm": "symmetric",
+        "cut": 1026,
+        "block_sizes": [
+          262912,
+          262913
+        ],
+        "capacity_feasible_replicas": 41,
+        "search_seconds": 91.27668696735054,
+        "setup_seconds": 6.379023096058518,
+        "verified_states": 144
+      }
+    ],
+    "audit_sha256": "6285b6855fd1fe1519b25f192710c0501c10963a5338762fc7ed398aaa67bdcb",
+    "plan_sha256": "6794ceee59b418e829f261bfebdacc471d22fac3788d982b910505808de2995e"
+  }
+}

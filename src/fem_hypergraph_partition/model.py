@@ -88,14 +88,12 @@ class CutNetQUBO:
         self.graph = graph
         self.n, self.m = graph.n, len(graph.edges)
         self.lower, self.upper = capacity(graph.n, epsilon)
-        if epsilon == 0:
-            # Fix one orientation of an odd bipartition, as in the manuscript.
-            self.lower = self.upper = graph.n//2
+        self.strict_symmetric = epsilon == 0
         self.sizes = np.array(list(map(len, graph.edges)))
         self.pins = np.concatenate(graph.edges).astype(np.int64)
         self.ids = np.repeat(np.arange(self.m), self.sizes)
         width = self.upper-self.lower
-        count = width.bit_length()
+        count = 0 if self.strict_symmetric else width.bit_length()
         self.slack_weights = np.r_[2**np.arange(count-1), width-(2**(count-1)-1)].astype(np.int64) if count else np.zeros(0, dtype=np.int64)
         self.penalty = int(np.bincount(self.pins, minlength=self.n).max())+1
         self.variables = self.n+2*self.m+count
@@ -103,7 +101,7 @@ class CutNetQUBO:
     def encode(self, partition):
         x = binary_vector(partition, self.n)
         counts = np.bincount(self.ids, weights=x[self.pins], minlength=self.m)
-        value = int(np.clip(int(x.sum())-self.lower, 0, self.upper-self.lower))
+        value = 0 if self.strict_symmetric else int(np.clip(int(x.sum())-self.lower, 0, self.upper-self.lower))
         bits = np.zeros(len(self.slack_weights), dtype=np.int8)
         for i in range(len(bits)-1, -1, -1):
             if value >= self.slack_weights[i]:
@@ -117,5 +115,8 @@ class CutNetQUBO:
         x, u, v = b[:self.n], b[self.n:self.n+self.m], b[self.n+self.m:self.n+2*self.m]
         counts = np.bincount(self.ids, weights=x[self.pins], minlength=self.m)
         net = (1+(self.sizes-1-counts)*u+(counts-1)*v).sum()
+        if self.strict_symmetric:
+            count=int(x.sum())
+            return float(net+self.penalty*(count-self.lower)*(count-self.upper))
         residual = int(x.sum())-self.lower-int(b[self.n+2*self.m:]@self.slack_weights)
         return float(net+self.penalty*residual**2)

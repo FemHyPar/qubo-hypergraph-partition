@@ -11,6 +11,7 @@ ALLOWED={'.gitignore','README.md','LICENSE','NOTICE','pyproject.toml',
     'docs/reproducibility.md','docs/plot_benchmarks.py','docs/check_benchmarks.py',
     'docs/benchmarks/paper_tables.json','docs/benchmarks/base_validation.json','docs/benchmarks/native_artifact.json',
     'paper/manuscript.pdf','paper/supplementary.pdf',
+    'docs/benchmarks/fp32_primary_2026-10-17.json','docs/benchmarks/paper_tables_before_fp32_primary_2026-10-17.json','docs/benchmarks/historical_controls_2026-10-16.json','docs/benchmarks/time_quality_2026-10-16.json','docs/benchmarks/time_to_target_2026-10-17.json','docs/benchmarks/time_to_target_priority_fixed_2026-10-17.json','docs/images/frozen_workflow.png','docs/images/time_quality.png','docs/images/time_quality_aggregate.png','docs/images/time_quality_aggregate_e01.png','docs/images/time_quality_aggregate_e03.png','docs/images/time_quality_e01.png','docs/images/time_quality_e03.png','docs/images/time_quality_scircuit.png',
     '.github/scripts/audit_tree.py','.github/workflows/sync-public-release.yml',
     *('docs/images/'+name+'.png' for name in ['method','objectives','qubo_quality','qubo_runtime']),
     *('src/fem_hypergraph_partition/'+name+'.py' for name in ['__init__','api','model','reference','educational','cli'])}

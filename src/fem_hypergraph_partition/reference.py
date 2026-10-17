@@ -77,7 +77,7 @@ class BaseFEM:
             logp=self.log_multiplicity[None,:]-penalty*(mean-m.lower-self.slack_values[None,:])**2/t
             logp-=logp.max(-1,keepdims=True);q=np.exp(logp);q/=q.sum(-1,keepdims=True)
             self.last_slack=q;target=m.lower+(q*self.slack_values).sum(-1,keepdims=True)
-        else:target=np.full((self.replicas,1),m.lower)
+        else:target=np.full((self.replicas,1),m.n/2 if m.strict_symmetric else m.lower)
         self.h,residual=implicit_update(self.h,cost,self.vertex_step,penalty,t,target,self.root_iterations)
         self.max_root_residual=max(self.max_root_residual,float(np.abs(residual).max()));self.index+=1
         if self.max_root_residual>=max(1e-7,1e-11*m.n):
@@ -98,7 +98,8 @@ def one_bit_descent(model,initial,max_steps=50000):
         residual=int(x.sum())-model.lower-int(bits[model.n+2*model.m:]@model.slack_weights)
         field=np.bincount(model.pins,weights=(v-u)[model.ids],minlength=model.n)
         slack=bits[model.n+2*model.m:]
-        delta=np.r_[field*(1-2*x)+model.penalty*(2*residual*(1-2*x)+1),
+        center=(2*int(x.sum())-model.lower-model.upper) if model.strict_symmetric else 2*residual
+        delta=np.r_[field*(1-2*x)+model.penalty*(center*(1-2*x)+1),
             (model.sizes-1-counts)*(1-2*u),(counts-1)*(1-2*v),
             model.penalty*(-2*residual*model.slack_weights*(1-2*slack)+model.slack_weights**2)]
         i=int(delta.argmin());minimum=float(delta[i])
