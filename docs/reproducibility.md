@@ -67,8 +67,8 @@ outside the solver clock.
 [paper_tables.json](benchmarks/paper_tables.json) provides the current
 30-input, three-capacity, three-trial comparison. Table 2 reports each
 solver's best native cut of three trials and the imbalance of that
-partition. Table 3 reports the median individual process wall time from
-those same trials. That median is not time to the best-of-three cut;
+partition. Table 3 lists the original vertex count for each input and the
+median individual process wall time from those same trials. That median is not time to the best-of-three cut;
 three serial trials cost their summed times.
 
 The [complete FP32 measurements](benchmarks/fp32_primary_2026-10-17.json)

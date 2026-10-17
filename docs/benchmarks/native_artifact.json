@@ -78,7 +78,7 @@
     "large_public_private_comparison_rerun": false
   },
   "release_url": "https://github.com/FemHyPar/qubo-hypergraph-partition/releases/tag/v0.1.0a5",
-  "artifact_status": "Prepared locally; upload separately from source-branch synchronization",
+  "artifact_status": "Versioned release asset; distributed separately from source synchronization.",
   "limitations": [
     "Installed compiled-wheel checks ran on CPU; complete GPU benchmark used the hash-matched private implementation.",
     "Additional Python ABIs and GPU architectures require separate artifacts.",
