@@ -1,9 +1,12 @@
 {
-  "version": 4,
+  "version": 5,
   "precision": "float32",
-  "algorithm": "One preselected FP32 FEM trajectory plus explicit conditional-QUBO CPU refinement",
-  "timing": "FEM A100: process launch through host-available partition, including native input setup and conditional-QUBO CPU refinement; cached modes and prior calibration excluded. KaHyPar-K local single CPU thread: one cold native CLI call per trial, reusing the complete audited three-seed benchmark. Independent audits and archival excluded for both.",
-  "statistics": "Best native cut of three trials; median per-trial process wall time from the same three runs; not time to the best-of-three cut",
+  "implementation": "standalone_cpp_cuda_fp32_v1",
+  "python_runtime": false,
+  "algorithm": "One preselected FP32 FEM trajectory in a device-controlled CUDA Graph, followed by conditional-QUBO CPU refinement",
+  "timing": "Fresh standalone C++/CUDA executable, parent launch through host-available refined partition. Input/model/cached-mode loading, CUDA initialization, graph preparation/search/readout and CPU refinement included. Prior mode construction and policy calibration, audit and archival excluded.",
+  "cuda_timing": "Wall interval for one CUDA Graph submission through completed host readout; excludes input/model/context/graph preparation and CPU refinement; not a complete solver latency.",
+  "statistics": "Best cut of three trials; median per-trial full process time and median CUDA interval from those same three runs; not time to best-of-three cut",
   "qubo": [
     {
       "instance": "ISPD98_ibm01.hgr",
@@ -16,26 +19,30 @@
           "fem": {
             "cut": 383,
             "imbalance_percent": 0.0,
-            "seconds": 3.874729273840785,
+            "seconds": 1.51421220182,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1533194132,
                 "cut": 482,
-                "seconds": 3.8484041756018996
+                "seconds": 1.6873907703,
+                "cuda_seconds": 1.36893668724
               },
               {
                 "seed": 794060301,
                 "cut": 383,
-                "seconds": 3.874729273840785
+                "seconds": 1.51421220182,
+                "cuda_seconds": 1.30420019198
               },
               {
                 "seed": 936769000,
                 "cut": 406,
-                "seconds": 3.881445365026593
+                "seconds": 1.47859704914,
+                "cuda_seconds": 1.25851072604
               }
-            ]
+            ],
+            "cuda_seconds": 1.30420019198
           },
           "kahypar": {
             "cut": 339,
@@ -67,26 +74,30 @@
           "fem": {
             "cut": 404,
             "imbalance_percent": 0.9723964868255885,
-            "seconds": 3.948614985216409,
+            "seconds": 1.74949156865,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1533194132,
                 "cut": 404,
-                "seconds": 3.936382029671222
+                "seconds": 1.74949156865,
+                "cuda_seconds": 1.53863578802
               },
               {
                 "seed": 794060301,
                 "cut": 404,
-                "seconds": 3.948614985216409
+                "seconds": 1.75184879778,
+                "cuda_seconds": 1.53974460112
               },
               {
                 "seed": 936769000,
                 "cut": 404,
-                "seconds": 3.960524630267173
+                "seconds": 1.74579134537,
+                "cuda_seconds": 1.53325996688
               }
-            ]
+            ],
+            "cuda_seconds": 1.53863578802
           },
           "kahypar": {
             "cut": 228,
@@ -118,26 +129,30 @@
           "fem": {
             "cut": 424,
             "imbalance_percent": 2.9956085319949866,
-            "seconds": 3.9740961510688066,
+            "seconds": 1.78825846082,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1533194132,
                 "cut": 424,
-                "seconds": 3.9824481159448624
+                "seconds": 1.79371168604,
+                "cuda_seconds": 1.58618118474
               },
               {
                 "seed": 794060301,
                 "cut": 424,
-                "seconds": 3.9740961510688066
+                "seconds": 1.7870968068,
+                "cuda_seconds": 1.57945512189
               },
               {
                 "seed": 936769000,
                 "cut": 424,
-                "seconds": 3.9407603312283754
+                "seconds": 1.78825846082,
+                "cuda_seconds": 1.57391034905
               }
-            ]
+            ],
+            "cuda_seconds": 1.57945512189
           },
           "kahypar": {
             "cut": 202,
@@ -177,26 +192,30 @@
           "fem": {
             "cut": 448,
             "imbalance_percent": 0.0,
-            "seconds": 3.9379176166839898,
+            "seconds": 1.83623268129,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2047653377,
                 "cut": 448,
-                "seconds": 3.888781805988401
+                "seconds": 2.30986496573,
+                "cuda_seconds": 1.96892387606
               },
               {
                 "seed": 4276080722,
                 "cut": 448,
-                "seconds": 3.9379176166839898
+                "seconds": 1.83209197782,
+                "cuda_seconds": 1.60254716408
               },
               {
                 "seed": 606852790,
                 "cut": 448,
-                "seconds": 3.9425607533194125
+                "seconds": 1.83623268129,
+                "cuda_seconds": 1.60274329828
               }
-            ]
+            ],
+            "cuda_seconds": 1.60274329828
           },
           "kahypar": {
             "cut": 411,
@@ -228,26 +247,30 @@
           "fem": {
             "cut": 432,
             "imbalance_percent": 0.9794918885827952,
-            "seconds": 3.3989277738146484,
+            "seconds": 1.13962903712,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2047653377,
                 "cut": 432,
-                "seconds": 3.3989277738146484
+                "seconds": 1.13962903712,
+                "cuda_seconds": 0.914240136743
               },
               {
                 "seed": 4276080722,
                 "cut": 432,
-                "seconds": 3.415749194100499
+                "seconds": 1.14080101158,
+                "cuda_seconds": 0.914266378153
               },
               {
                 "seed": 606852790,
                 "cut": 432,
-                "seconds": 3.3756882520392537
+                "seconds": 1.13854061905,
+                "cuda_seconds": 0.914256387856
               }
-            ]
+            ],
+            "cuda_seconds": 0.914256387856
           },
           "kahypar": {
             "cut": 356,
@@ -279,26 +302,30 @@
           "fem": {
             "cut": 390,
             "imbalance_percent": 2.9996939087848284,
-            "seconds": 3.8436961621046066,
+            "seconds": 1.26874266798,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2047653377,
                 "cut": 390,
-                "seconds": 3.8294429290108383
+                "seconds": 1.26957187662,
+                "cuda_seconds": 1.04303714121
               },
               {
                 "seed": 4276080722,
                 "cut": 390,
-                "seconds": 3.8436961621046066
+                "seconds": 1.26791877067,
+                "cuda_seconds": 1.04287757119
               },
               {
                 "seed": 606852790,
                 "cut": 390,
-                "seconds": 3.864162338897586
+                "seconds": 1.26874266798,
+                "cuda_seconds": 1.04303850001
               }
-            ]
+            ],
+            "cuda_seconds": 1.04303714121
           },
           "kahypar": {
             "cut": 349,
@@ -338,26 +365,30 @@
           "fem": {
             "cut": 1240,
             "imbalance_percent": 0.0,
-            "seconds": 3.9917438300326467,
+            "seconds": 1.85284431884,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1920588873,
                 "cut": 1240,
-                "seconds": 3.9917438300326467
+                "seconds": 1.85730254604,
+                "cuda_seconds": 1.61463643098
               },
               {
                 "seed": 1547310190,
                 "cut": 1240,
-                "seconds": 3.985467038117349
+                "seconds": 1.85284431884,
+                "cuda_seconds": 1.61456425115
               },
               {
                 "seed": 2960915974,
                 "cut": 1240,
-                "seconds": 3.9974906546995044
+                "seconds": 1.8518324336,
+                "cuda_seconds": 1.61460981006
               }
-            ]
+            ],
+            "cuda_seconds": 1.61460981006
           },
           "kahypar": {
             "cut": 1503,
@@ -389,26 +420,30 @@
           "fem": {
             "cut": 1248,
             "imbalance_percent": 0.9941217150760684,
-            "seconds": 4.135062533896416,
+            "seconds": 1.87597519485,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1920588873,
                 "cut": 1248,
-                "seconds": 4.135062533896416
+                "seconds": 1.88061522832,
+                "cuda_seconds": 1.641203837
               },
               {
                 "seed": 1547310190,
                 "cut": 1252,
-                "seconds": 4.165975507814437
+                "seconds": 1.87597519485,
+                "cuda_seconds": 1.64115367085
               },
               {
                 "seed": 2960915974,
                 "cut": 1252,
-                "seconds": 4.1152921207249165
+                "seconds": 1.87249721121,
+                "cuda_seconds": 1.64106710209
               }
-            ]
+            ],
+            "cuda_seconds": 1.64115367085
           },
           "kahypar": {
             "cut": 963,
@@ -440,26 +475,30 @@
           "fem": {
             "cut": 1248,
             "imbalance_percent": 2.9477869986168637,
-            "seconds": 4.173165674787015,
+            "seconds": 1.87758138683,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1920588873,
                 "cut": 1269,
-                "seconds": 4.1993752317503095
+                "seconds": 1.84560606722,
+                "cuda_seconds": 1.61165642692
               },
               {
                 "seed": 1547310190,
                 "cut": 1248,
-                "seconds": 4.173165674787015
+                "seconds": 1.87758138683,
+                "cuda_seconds": 1.64570960961
               },
               {
                 "seed": 2960915974,
                 "cut": 1285,
-                "seconds": 4.13857069099322
+                "seconds": 1.8818478412,
+                "cuda_seconds": 1.64502207236
               }
-            ]
+            ],
+            "cuda_seconds": 1.64502207236
           },
           "kahypar": {
             "cut": 959,
@@ -499,26 +538,30 @@
           "fem": {
             "cut": 909,
             "imbalance_percent": 0.0,
-            "seconds": 4.189069104380906,
+            "seconds": 1.97554240795,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4270411164,
-                "cut": 961,
-                "seconds": 4.190529413986951
+                "cut": 960,
+                "seconds": 1.97554240795,
+                "cuda_seconds": 1.73983970983
               },
               {
                 "seed": 1818377277,
                 "cut": 909,
-                "seconds": 4.189069104380906
+                "seconds": 1.93851239793,
+                "cuda_seconds": 1.70467595104
               },
               {
                 "seed": 3364817921,
-                "cut": 962,
-                "seconds": 4.1418696460314095
+                "cut": 960,
+                "seconds": 1.9810775253,
+                "cuda_seconds": 1.73997630598
               }
-            ]
+            ],
+            "cuda_seconds": 1.73983970983
           },
           "kahypar": {
             "cut": 852,
@@ -550,26 +593,30 @@
           "fem": {
             "cut": 640,
             "imbalance_percent": 0.9815326450487216,
-            "seconds": 4.314599922858179,
+            "seconds": 2.04077067599,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4270411164,
                 "cut": 640,
-                "seconds": 4.314599922858179
+                "seconds": 2.04077067599,
+                "cuda_seconds": 1.80425542779
               },
               {
                 "seed": 1818377277,
                 "cut": 640,
-                "seconds": 4.276399766094983
+                "seconds": 2.03930254886,
+                "cuda_seconds": 1.80427441327
               },
               {
                 "seed": 3364817921,
                 "cut": 640,
-                "seconds": 4.331277517136186
+                "seconds": 2.04335304163,
+                "cuda_seconds": 1.80434811208
               }
-            ]
+            ],
+            "cuda_seconds": 1.80427441327
           },
           "kahypar": {
             "cut": 596,
@@ -599,28 +646,32 @@
         {
           "allowed_imbalance_percent": 3,
           "fem": {
-            "cut": 608,
+            "cut": 607,
             "imbalance_percent": 2.777373854878573,
-            "seconds": 4.209193060174584,
+            "seconds": 1.08625526493,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4270411164,
-                "cut": 610,
-                "seconds": 4.221061397809535
+                "cut": 609,
+                "seconds": 1.08625526493,
+                "cuda_seconds": 0.848861360922
               },
               {
                 "seed": 1818377277,
-                "cut": 608,
-                "seconds": 4.209193060174584
+                "cut": 607,
+                "seconds": 1.09137596376,
+                "cuda_seconds": 0.848911602981
               },
               {
                 "seed": 3364817921,
-                "cut": 608,
-                "seconds": 4.1853709681890905
+                "cut": 607,
+                "seconds": 1.08384716511,
+                "cuda_seconds": 0.848967052065
               }
-            ]
+            ],
+            "cuda_seconds": 0.848911602981
           },
           "kahypar": {
             "cut": 589,
@@ -660,26 +711,30 @@
           "fem": {
             "cut": 2402,
             "imbalance_percent": 0.0,
-            "seconds": 4.013394572772086,
+            "seconds": 1.8543089414,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 165542712,
                 "cut": 2405,
-                "seconds": 4.0270542697981
+                "seconds": 2.0828721337,
+                "cuda_seconds": 1.70460279612
               },
               {
                 "seed": 2998268603,
                 "cut": 2405,
-                "seconds": 4.013394572772086
+                "seconds": 1.8543089414,
+                "cuda_seconds": 1.58310581604
               },
               {
                 "seed": 188952554,
                 "cut": 2402,
-                "seconds": 3.9994494570419192
+                "seconds": 1.17098148167,
+                "cuda_seconds": 0.899933273904
               }
-            ]
+            ],
+            "cuda_seconds": 1.58310581604
           },
           "kahypar": {
             "cut": 1995,
@@ -711,26 +766,30 @@
           "fem": {
             "cut": 1841,
             "imbalance_percent": 0.6065149243559942,
-            "seconds": 4.070703221019357,
+            "seconds": 1.85437773494,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 165542712,
                 "cut": 1844,
-                "seconds": 4.070703221019357
+                "seconds": 1.85435852129,
+                "cuda_seconds": 1.60727477074
               },
               {
                 "seed": 2998268603,
-                "cut": 1843,
-                "seconds": 4.0558308670297265
+                "cut": 1841,
+                "seconds": 1.85437773494,
+                "cuda_seconds": 1.60816013906
               },
               {
                 "seed": 188952554,
                 "cut": 1841,
-                "seconds": 4.099084191024303
+                "seconds": 1.85948688816,
+                "cuda_seconds": 1.60832540365
               }
-            ]
+            ],
+            "cuda_seconds": 1.60816013906
           },
           "kahypar": {
             "cut": 1741,
@@ -762,26 +821,30 @@
           "fem": {
             "cut": 1831,
             "imbalance_percent": 1.3425105629003786,
-            "seconds": 4.13327440014109,
+            "seconds": 1.85400228202,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 165542712,
                 "cut": 1831,
-                "seconds": 4.13327440014109
+                "seconds": 1.856535397,
+                "cuda_seconds": 1.60984097514
               },
               {
                 "seed": 2998268603,
                 "cut": 1831,
-                "seconds": 4.120999875944108
+                "seconds": 1.85400228202,
+                "cuda_seconds": 1.60980643192
               },
               {
                 "seed": 188952554,
                 "cut": 1831,
-                "seconds": 4.143457159399986
+                "seconds": 1.85367987724,
+                "cuda_seconds": 1.60980951414
               }
-            ]
+            ],
+            "cuda_seconds": 1.60980951414
           },
           "kahypar": {
             "cut": 1707,
@@ -821,26 +884,30 @@
           "fem": {
             "cut": 1043,
             "imbalance_percent": 0.0,
-            "seconds": 4.04741300875321,
+            "seconds": 1.85308450507,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1916733984,
                 "cut": 1043,
-                "seconds": 4.061209733132273
+                "seconds": 1.8530815579,
+                "cuda_seconds": 1.60823045997
               },
               {
                 "seed": 1287083982,
                 "cut": 1043,
-                "seconds": 4.04741300875321
+                "seconds": 1.85308450507,
+                "cuda_seconds": 1.60749837896
               },
               {
                 "seed": 4044470189,
                 "cut": 1043,
-                "seconds": 4.030415651854128
+                "seconds": 1.85500038601,
+                "cuda_seconds": 1.60836975463
               }
-            ]
+            ],
+            "cuda_seconds": 1.60823045997
           },
           "kahypar": {
             "cut": 1495,
@@ -872,26 +939,30 @@
           "fem": {
             "cut": 1037,
             "imbalance_percent": 0.6831189611668398,
-            "seconds": 3.9904111521318555,
+            "seconds": 1.09614378167,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1916733984,
                 "cut": 1038,
-                "seconds": 4.015628257766366
+                "seconds": 1.09614378167,
+                "cuda_seconds": 0.851768472232
               },
               {
                 "seed": 1287083982,
                 "cut": 1038,
-                "seconds": 3.9896332607604563
+                "seconds": 1.09492225666,
+                "cuda_seconds": 0.851832211949
               },
               {
                 "seed": 4044470189,
                 "cut": 1037,
-                "seconds": 3.9904111521318555
+                "seconds": 1.09724997776,
+                "cuda_seconds": 0.85179080721
               }
-            ]
+            ],
+            "cuda_seconds": 0.85179080721
           },
           "kahypar": {
             "cut": 1008,
@@ -923,26 +994,30 @@
           "fem": {
             "cut": 1046,
             "imbalance_percent": 1.107760477567843,
-            "seconds": 4.228899051900953,
+            "seconds": 1.94353553886,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1916733984,
                 "cut": 1055,
-                "seconds": 4.206033969298005
+                "seconds": 1.94365832675,
+                "cuda_seconds": 1.67689265124
               },
               {
                 "seed": 1287083982,
                 "cut": 1046,
-                "seconds": 4.228899051900953
+                "seconds": 1.938176197,
+                "cuda_seconds": 1.67697458388
               },
               {
                 "seed": 4044470189,
                 "cut": 1055,
-                "seconds": 4.322001046966761
+                "seconds": 1.94353553886,
+                "cuda_seconds": 1.67720329808
               }
-            ]
+            ],
+            "cuda_seconds": 1.67697458388
           },
           "kahypar": {
             "cut": 997,
@@ -982,26 +1057,30 @@
           "fem": {
             "cut": 1239,
             "imbalance_percent": 0.0,
-            "seconds": 4.169366228859872,
+            "seconds": 1.89277709927,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3395692362,
                 "cut": 1405,
-                "seconds": 4.140252855140716
+                "seconds": 1.89277709927,
+                "cuda_seconds": 1.63065211708
               },
               {
                 "seed": 2052472007,
                 "cut": 1239,
-                "seconds": 4.169366228859872
+                "seconds": 1.89300690964,
+                "cuda_seconds": 1.63063055696
               },
               {
                 "seed": 2955976853,
                 "cut": 1405,
-                "seconds": 4.174045831896365
+                "seconds": 1.88366581174,
+                "cuda_seconds": 1.63045898173
               }
-            ]
+            ],
+            "cuda_seconds": 1.63063055696
           },
           "kahypar": {
             "cut": 1775,
@@ -1033,26 +1112,30 @@
           "fem": {
             "cut": 1464,
             "imbalance_percent": 0.9972564560379649,
-            "seconds": 4.217842437792569,
+            "seconds": 1.91142566595,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3395692362,
                 "cut": 1464,
-                "seconds": 4.249668485019356
+                "seconds": 1.91142566595,
+                "cuda_seconds": 1.65722762095
               },
               {
                 "seed": 2052472007,
                 "cut": 1464,
-                "seconds": 4.217842437792569
+                "seconds": 1.91428159596,
+                "cuda_seconds": 1.65688545303
               },
               {
                 "seed": 2955976853,
                 "cut": 1464,
-                "seconds": 4.205923303961754
+                "seconds": 1.90917165205,
+                "cuda_seconds": 1.65692542028
               }
-            ]
+            ],
+            "cuda_seconds": 1.65692542028
           },
           "kahypar": {
             "cut": 964,
@@ -1084,26 +1167,30 @@
           "fem": {
             "cut": 2231,
             "imbalance_percent": 2.9308017245133433,
-            "seconds": 4.354624201077968,
+            "seconds": 1.95231871679,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3395692362,
-                "cut": 2333,
-                "seconds": 4.32955714315176
+                "cut": 2337,
+                "seconds": 1.95231871679,
+                "cuda_seconds": 1.68499973463
               },
               {
                 "seed": 2052472007,
                 "cut": 2231,
-                "seconds": 4.375460686162114
+                "seconds": 1.94532498298,
+                "cuda_seconds": 1.68532129703
               },
               {
                 "seed": 2955976853,
                 "cut": 2335,
-                "seconds": 4.354624201077968
+                "seconds": 1.9545353353,
+                "cuda_seconds": 1.68467790587
               }
-            ]
+            ],
+            "cuda_seconds": 1.68499973463
           },
           "kahypar": {
             "cut": 900,
@@ -1143,26 +1230,30 @@
           "fem": {
             "cut": 1226,
             "imbalance_percent": 0.0,
-            "seconds": 4.580190691165626,
+            "seconds": 2.2880541929,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 159899135,
                 "cut": 1226,
-                "seconds": 4.565210429020226
+                "seconds": 2.28764381306,
+                "cuda_seconds": 2.01350499829
               },
               {
                 "seed": 1516582409,
                 "cut": 1226,
-                "seconds": 4.5861748163588345
+                "seconds": 2.29012368619,
+                "cuda_seconds": 2.01353955921
               },
               {
                 "seed": 3937489562,
                 "cut": 1226,
-                "seconds": 4.580190691165626
+                "seconds": 2.2880541929,
+                "cuda_seconds": 2.01348160394
               }
-            ]
+            ],
+            "cuda_seconds": 2.01350499829
           },
           "kahypar": {
             "cut": 1588,
@@ -1194,26 +1285,30 @@
           "fem": {
             "cut": 1159,
             "imbalance_percent": 0.1442213993373631,
-            "seconds": 4.708528950810432,
+            "seconds": 2.31128239585,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 159899135,
                 "cut": 1159,
-                "seconds": 4.708528950810432
+                "seconds": 2.31128239585,
+                "cuda_seconds": 2.04648278793
               },
               {
                 "seed": 1516582409,
                 "cut": 1162,
-                "seconds": 4.753356240224093
+                "seconds": 2.31992454967,
+                "cuda_seconds": 2.04643501295
               },
               {
                 "seed": 3937489562,
                 "cut": 1159,
-                "seconds": 4.64145860588178
+                "seconds": 2.31045688409,
+                "cuda_seconds": 2.04644377809
               }
-            ]
+            ],
+            "cuda_seconds": 2.04644377809
           },
           "kahypar": {
             "cut": 1140,
@@ -1244,27 +1339,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 1168,
-            "imbalance_percent": 2.022997466380816,
-            "seconds": 3.95474981283769,
+            "imbalance_percent": 1.9996102124342219,
+            "seconds": 1.27615270996,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 159899135,
                 "cut": 1169,
-                "seconds": 3.99439852591604
+                "seconds": 1.27615270996,
+                "cuda_seconds": 1.00377811212
               },
               {
                 "seed": 1516582409,
                 "cut": 1168,
-                "seconds": 3.9515528180636466
+                "seconds": 1.28376537282,
+                "cuda_seconds": 1.00369363884
               },
               {
                 "seed": 3937489562,
                 "cut": 1169,
-                "seconds": 3.95474981283769
+                "seconds": 1.27539924299,
+                "cuda_seconds": 1.00376061024
               }
-            ]
+            ],
+            "cuda_seconds": 1.00376061024
           },
           "kahypar": {
             "cut": 1140,
@@ -1304,26 +1403,30 @@
           "fem": {
             "cut": 708,
             "imbalance_percent": 0.0,
-            "seconds": 4.233899665996432,
+            "seconds": 1.94601586508,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 240454526,
                 "cut": 708,
-                "seconds": 4.223044858314097
+                "seconds": 1.94601586508,
+                "cuda_seconds": 1.68235144624
               },
               {
                 "seed": 4084366638,
                 "cut": 708,
-                "seconds": 4.239045239053667
+                "seconds": 1.9441212602,
+                "cuda_seconds": 1.68209795607
               },
               {
                 "seed": 789878906,
                 "cut": 708,
-                "seconds": 4.233899665996432
+                "seconds": 1.94641157892,
+                "cuda_seconds": 1.6821142328
               }
-            ]
+            ],
+            "cuda_seconds": 1.6821142328
           },
           "kahypar": {
             "cut": 1006,
@@ -1355,26 +1458,30 @@
           "fem": {
             "cut": 694,
             "imbalance_percent": 0.9963293130571538,
-            "seconds": 4.343118064105511,
+            "seconds": 1.9808188742,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 240454526,
                 "cut": 694,
-                "seconds": 4.343118064105511
+                "seconds": 1.98069393216,
+                "cuda_seconds": 1.71131767565
               },
               {
                 "seed": 4084366638,
                 "cut": 694,
-                "seconds": 4.412162774242461
+                "seconds": 1.98122570198,
+                "cuda_seconds": 1.71053096605
               },
               {
                 "seed": 789878906,
                 "cut": 694,
-                "seconds": 4.322650189977139
+                "seconds": 1.9808188742,
+                "cuda_seconds": 1.71075834567
               }
-            ]
+            ],
+            "cuda_seconds": 1.71075834567
           },
           "kahypar": {
             "cut": 634,
@@ -1406,26 +1513,30 @@
           "fem": {
             "cut": 652,
             "imbalance_percent": 2.9365495542737374,
-            "seconds": 4.477029826957732,
+            "seconds": 1.97638906213,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 240454526,
                 "cut": 652,
-                "seconds": 4.430783954914659
+                "seconds": 1.97638906213,
+                "cuda_seconds": 1.70713415556
               },
               {
                 "seed": 4084366638,
                 "cut": 652,
-                "seconds": 4.5032652909867465
+                "seconds": 1.97999599809,
+                "cuda_seconds": 1.70656285109
               },
               {
                 "seed": 789878906,
                 "cut": 653,
-                "seconds": 4.477029826957732
+                "seconds": 1.97471073503,
+                "cuda_seconds": 1.70669779181
               }
-            ]
+            ],
+            "cuda_seconds": 1.70669779181
           },
           "kahypar": {
             "cut": 620,
@@ -1465,26 +1576,30 @@
           "fem": {
             "cut": 1801,
             "imbalance_percent": 0.0,
-            "seconds": 4.191820769105107,
+            "seconds": 1.97034868831,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 903867315,
                 "cut": 1801,
-                "seconds": 4.1450912700966
+                "seconds": 1.9663688899,
+                "cuda_seconds": 1.64613314578
               },
               {
                 "seed": 3535933733,
                 "cut": 1801,
-                "seconds": 4.195237054023892
+                "seconds": 1.97034868831,
+                "cuda_seconds": 1.64603243396
               },
               {
                 "seed": 2179823623,
                 "cut": 1801,
-                "seconds": 4.191820769105107
+                "seconds": 1.97472240496,
+                "cuda_seconds": 1.64597920608
               }
-            ]
+            ],
+            "cuda_seconds": 1.64603243396
           },
           "kahypar": {
             "cut": 2127,
@@ -1516,26 +1631,30 @@
           "fem": {
             "cut": 1702,
             "imbalance_percent": 0.9938067117960525,
-            "seconds": 4.317728744354099,
+            "seconds": 1.97692308901,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 903867315,
                 "cut": 1702,
-                "seconds": 4.295580598060042
+                "seconds": 1.97692308901,
+                "cuda_seconds": 1.67800523434
               },
               {
                 "seed": 3535933733,
                 "cut": 1702,
-                "seconds": 4.38902040803805
+                "seconds": 1.9771741298,
+                "cuda_seconds": 1.67799568921
               },
               {
                 "seed": 2179823623,
                 "cut": 1702,
-                "seconds": 4.317728744354099
+                "seconds": 1.97674973123,
+                "cuda_seconds": 1.67814526195
               }
-            ]
+            ],
+            "cuda_seconds": 1.67800523434
           },
           "kahypar": {
             "cut": 1342,
@@ -1567,26 +1686,30 @@
           "fem": {
             "cut": 1733,
             "imbalance_percent": 2.998703730375918,
-            "seconds": 4.40339517313987,
+            "seconds": 2.04343753308,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 903867315,
                 "cut": 1733,
-                "seconds": 4.399220163933933
+                "seconds": 2.0498277857,
+                "cuda_seconds": 1.73468156997
               },
               {
                 "seed": 3535933733,
                 "cut": 2457,
-                "seconds": 4.413803895935416
+                "seconds": 2.04343753308,
+                "cuda_seconds": 1.73474940704
               },
               {
                 "seed": 2179823623,
                 "cut": 1766,
-                "seconds": 4.40339517313987
+                "seconds": 2.01704559615,
+                "cuda_seconds": 1.69810468797
               }
-            ]
+            ],
+            "cuda_seconds": 1.73468156997
           },
           "kahypar": {
             "cut": 1317,
@@ -1626,26 +1749,30 @@
           "fem": {
             "cut": 1392,
             "imbalance_percent": 0.0,
-            "seconds": 4.326369408052415,
+            "seconds": 2.00708406186,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4037436195,
                 "cut": 1438,
-                "seconds": 4.341898382175714
+                "seconds": 2.02143798908,
+                "cuda_seconds": 1.70660225535
               },
               {
                 "seed": 3507719356,
                 "cut": 1392,
-                "seconds": 4.326369408052415
+                "seconds": 2.00290135201,
+                "cuda_seconds": 1.70686969999
               },
               {
                 "seed": 2559437534,
                 "cut": 1532,
-                "seconds": 4.320257168263197
+                "seconds": 2.00708406186,
+                "cuda_seconds": 1.70802315464
               }
-            ]
+            ],
+            "cuda_seconds": 1.70686969999
           },
           "kahypar": {
             "cut": 1827,
@@ -1677,26 +1804,30 @@
           "fem": {
             "cut": 1483,
             "imbalance_percent": 0.9212279259616096,
-            "seconds": 4.480478813871741,
+            "seconds": 2.03446105169,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4037436195,
                 "cut": 1490,
-                "seconds": 4.4693150119856
+                "seconds": 2.00634064618,
+                "cuda_seconds": 1.70386884315
               },
               {
                 "seed": 3507719356,
                 "cut": 1508,
-                "seconds": 4.497277488000691
+                "seconds": 2.03446105169,
+                "cuda_seconds": 1.7380152843
               },
               {
                 "seed": 2559437534,
                 "cut": 1483,
-                "seconds": 4.480478813871741
+                "seconds": 2.04189755209,
+                "cuda_seconds": 1.73904263228
               }
-            ]
+            ],
+            "cuda_seconds": 1.7380152843
           },
           "kahypar": {
             "cut": 1080,
@@ -1728,26 +1859,30 @@
           "fem": {
             "cut": 1309,
             "imbalance_percent": 2.9989512174381394,
-            "seconds": 4.49993133964017,
+            "seconds": 2.04382729298,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 4037436195,
                 "cut": 1309,
-                "seconds": 4.503550289198756
+                "seconds": 2.04382729298,
+                "cuda_seconds": 1.748352414
               },
               {
                 "seed": 3507719356,
                 "cut": 1309,
-                "seconds": 4.4825077769346535
+                "seconds": 2.0424143211,
+                "cuda_seconds": 1.74841732299
               },
               {
                 "seed": 2559437534,
                 "cut": 1309,
-                "seconds": 4.49993133964017
+                "seconds": 2.05354275415,
+                "cuda_seconds": 1.74841267476
               }
-            ]
+            ],
+            "cuda_seconds": 1.74841267476
           },
           "kahypar": {
             "cut": 1062,
@@ -1787,26 +1922,30 @@
           "fem": {
             "cut": 2836,
             "imbalance_percent": 0.0,
-            "seconds": 4.479118135757744,
+            "seconds": 2.14858560823,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3319081416,
                 "cut": 2909,
-                "seconds": 4.442533316090703
+                "seconds": 2.13697042689,
+                "cuda_seconds": 1.82737008017
               },
               {
                 "seed": 3112146934,
                 "cut": 2995,
-                "seconds": 4.496689348947257
+                "seconds": 2.15055259038,
+                "cuda_seconds": 1.82968399301
               },
               {
                 "seed": 1284343539,
                 "cut": 2836,
-                "seconds": 4.479118135757744
+                "seconds": 2.14858560823,
+                "cuda_seconds": 1.82642625226
               }
-            ]
+            ],
+            "cuda_seconds": 1.82737008017
           },
           "kahypar": {
             "cut": 3634,
@@ -1838,26 +1977,30 @@
           "fem": {
             "cut": 2650,
             "imbalance_percent": 0.9989307220440002,
-            "seconds": 4.656230390071869,
+            "seconds": 2.16469850391,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3319081416,
                 "cut": 2922,
-                "seconds": 4.656230390071869
+                "seconds": 2.16389293503,
+                "cuda_seconds": 1.85868166713
               },
               {
                 "seed": 3112146934,
                 "cut": 2911,
-                "seconds": 4.643304091878235
+                "seconds": 2.21715180995,
+                "cuda_seconds": 1.90166894393
               },
               {
                 "seed": 1284343539,
                 "cut": 2650,
-                "seconds": 4.666286076884717
+                "seconds": 2.16469850391,
+                "cuda_seconds": 1.85707876086
               }
-            ]
+            ],
+            "cuda_seconds": 1.85868166713
           },
           "kahypar": {
             "cut": 2114,
@@ -1889,26 +2032,30 @@
           "fem": {
             "cut": 2764,
             "imbalance_percent": 2.7604254600709144,
-            "seconds": 4.510798120871186,
+            "seconds": 2.1622086647,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3319081416,
-                "cut": 4552,
-                "seconds": 4.510798120871186
+                "cut": 4553,
+                "seconds": 2.1731982748,
+                "cuda_seconds": 1.84133340698
               },
               {
                 "seed": 3112146934,
                 "cut": 2764,
-                "seconds": 4.422661012969911
+                "seconds": 2.1622086647,
+                "cuda_seconds": 1.83711018087
               },
               {
                 "seed": 1284343539,
                 "cut": 3338,
-                "seconds": 4.5237035267055035
+                "seconds": 2.13841495197,
+                "cuda_seconds": 1.84053357411
               }
-            ]
+            ],
+            "cuda_seconds": 1.84053357411
           },
           "kahypar": {
             "cut": 1936,
@@ -1948,26 +2095,30 @@
           "fem": {
             "cut": 2507,
             "imbalance_percent": 0.0,
-            "seconds": 4.50881767179817,
+            "seconds": 2.119746699,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 824423480,
-                "cut": 3912,
-                "seconds": 4.4695328758098185
+                "cut": 3907,
+                "seconds": 2.04283278482,
+                "cuda_seconds": 1.71250576712
               },
               {
                 "seed": 1508836260,
                 "cut": 2507,
-                "seconds": 4.50881767179817
+                "seconds": 2.119746699,
+                "cuda_seconds": 1.76620820304
               },
               {
                 "seed": 1708748750,
                 "cut": 2837,
-                "seconds": 4.564737391192466
+                "seconds": 2.15493827313,
+                "cuda_seconds": 1.74648566311
               }
-            ]
+            ],
+            "cuda_seconds": 1.74648566311
           },
           "kahypar": {
             "cut": 1415,
@@ -1999,26 +2150,30 @@
           "fem": {
             "cut": 2433,
             "imbalance_percent": 1.0000000000000009,
-            "seconds": 4.531311850994825,
+            "seconds": 2.21421544719,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 824423480,
                 "cut": 2433,
-                "seconds": 4.530312652233988
+                "seconds": 2.21421544719,
+                "cuda_seconds": 1.83699970972
               },
               {
                 "seed": 1508836260,
                 "cut": 2458,
-                "seconds": 4.531311850994825
+                "seconds": 2.20870586671,
+                "cuda_seconds": 1.80041385489
               },
               {
                 "seed": 1708748750,
                 "cut": 2458,
-                "seconds": 4.581503902096301
+                "seconds": 2.22914377786,
+                "cuda_seconds": 1.81195625989
               }
-            ]
+            ],
+            "cuda_seconds": 1.81195625989
           },
           "kahypar": {
             "cut": 849,
@@ -2050,26 +2205,30 @@
           "fem": {
             "cut": 2795,
             "imbalance_percent": 1.5463182897862193,
-            "seconds": 4.719394020270556,
+            "seconds": 2.1442277017,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 824423480,
                 "cut": 2795,
-                "seconds": 3.85076355189085
+                "seconds": 1.29079182399,
+                "cuda_seconds": 0.963933374733
               },
               {
                 "seed": 1508836260,
                 "cut": 3363,
-                "seconds": 4.719394020270556
+                "seconds": 2.1442277017,
+                "cuda_seconds": 1.81242408603
               },
               {
                 "seed": 1708748750,
                 "cut": 3457,
-                "seconds": 4.750859708990902
+                "seconds": 2.24195802817,
+                "cuda_seconds": 1.84617162077
               }
-            ]
+            ],
+            "cuda_seconds": 1.81242408603
           },
           "kahypar": {
             "cut": 848,
@@ -2109,26 +2268,30 @@
           "fem": {
             "cut": 2517,
             "imbalance_percent": 0.0,
-            "seconds": 4.842408487107605,
+            "seconds": 2.39882776979,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 48373868,
                 "cut": 2517,
-                "seconds": 4.842408487107605
+                "seconds": 2.39205978299,
+                "cuda_seconds": 1.89087320026
               },
               {
                 "seed": 633599887,
                 "cut": 2865,
-                "seconds": 4.855909080244601
+                "seconds": 2.43009287911,
+                "cuda_seconds": 1.87900749687
               },
               {
                 "seed": 3901816825,
                 "cut": 2865,
-                "seconds": 4.838264639023691
+                "seconds": 2.39882776979,
+                "cuda_seconds": 1.86108142696
               }
-            ]
+            ],
+            "cuda_seconds": 1.87900749687
           },
           "kahypar": {
             "cut": 3305,
@@ -2160,26 +2323,30 @@
           "fem": {
             "cut": 3133,
             "imbalance_percent": 0.9024023413682469,
-            "seconds": 5.055749726947397,
+            "seconds": 2.42379593989,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 48373868,
                 "cut": 3362,
-                "seconds": 5.0340107548981905
+                "seconds": 2.48379347101,
+                "cuda_seconds": 1.93949279189
               },
               {
                 "seed": 633599887,
                 "cut": 3133,
-                "seconds": 5.055749726947397
+                "seconds": 2.4140976537,
+                "cuda_seconds": 1.90544850705
               },
               {
                 "seed": 3901816825,
                 "cut": 3538,
-                "seconds": 5.082357130944729
+                "seconds": 2.42379593989,
+                "cuda_seconds": 1.90328578977
               }
-            ]
+            ],
+            "cuda_seconds": 1.90544850705
           },
           "kahypar": {
             "cut": 1850,
@@ -2211,26 +2378,30 @@
           "fem": {
             "cut": 3452,
             "imbalance_percent": 2.999878053737648,
-            "seconds": 5.198065621312708,
+            "seconds": 2.51886849571,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 48373868,
                 "cut": 3452,
-                "seconds": 5.197960441932082
+                "seconds": 2.57132360805,
+                "cuda_seconds": 2.02949699201
               },
               {
                 "seed": 633599887,
                 "cut": 3452,
-                "seconds": 5.198065621312708
+                "seconds": 2.48841340933,
+                "cuda_seconds": 1.95096198143
               },
               {
                 "seed": 3901816825,
                 "cut": 3452,
-                "seconds": 5.2303799581713974
+                "seconds": 2.51886849571,
+                "cuda_seconds": 1.97412931593
               }
-            ]
+            ],
+            "cuda_seconds": 1.97412931593
           },
           "kahypar": {
             "cut": 1849,
@@ -2270,26 +2441,30 @@
           "fem": {
             "cut": 4873,
             "imbalance_percent": 0.0,
-            "seconds": 5.163289168849587,
+            "seconds": 2.53534573968,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1325264261,
                 "cut": 4878,
-                "seconds": 5.144476350862533
+                "seconds": 2.40487499582,
+                "cuda_seconds": 1.92405281775
               },
               {
                 "seed": 2037790256,
                 "cut": 4999,
-                "seconds": 5.163289168849587
+                "seconds": 2.62618809799,
+                "cuda_seconds": 2.01907037478
               },
               {
                 "seed": 70428025,
                 "cut": 4873,
-                "seconds": 5.176185098942369
+                "seconds": 2.53534573968,
+                "cuda_seconds": 1.9588155332
               }
-            ]
+            ],
+            "cuda_seconds": 1.9588155332
           },
           "kahypar": {
             "cut": 5622,
@@ -2321,26 +2496,30 @@
           "fem": {
             "cut": 4543,
             "imbalance_percent": 0.9989478244723626,
-            "seconds": 5.404452176298946,
+            "seconds": 2.55829017982,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1325264261,
                 "cut": 5065,
-                "seconds": 5.404452176298946
+                "seconds": 2.54898075294,
+                "cuda_seconds": 2.00481083896
               },
               {
                 "seed": 2037790256,
                 "cut": 4543,
-                "seconds": 5.432305176276714
+                "seconds": 2.55829017982,
+                "cuda_seconds": 2.00278396485
               },
               {
                 "seed": 70428025,
                 "cut": 5244,
-                "seconds": 5.400802636053413
+                "seconds": 2.59147590399,
+                "cuda_seconds": 2.01814087713
               }
-            ]
+            ],
+            "cuda_seconds": 2.00481083896
           },
           "kahypar": {
             "cut": 2839,
@@ -2371,27 +2550,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 5974,
-            "imbalance_percent": 0.26861422293742443,
-            "seconds": 5.478404500987381,
+            "imbalance_percent": 0.27480349074704424,
+            "seconds": 2.48046537675,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1325264261,
                 "cut": 7666,
-                "seconds": 5.485013593919575
+                "seconds": 2.48046537675,
+                "cuda_seconds": 1.93500142172
               },
               {
                 "seed": 2037790256,
-                "cut": 7362,
-                "seconds": 4.953982580918819
+                "cut": 7370,
+                "seconds": 2.26568295294,
+                "cuda_seconds": 1.70718507795
               },
               {
                 "seed": 70428025,
                 "cut": 5974,
-                "seconds": 5.478404500987381
+                "seconds": 2.50085921912,
+                "cuda_seconds": 1.94750943501
               }
-            ]
+            ],
+            "cuda_seconds": 1.93500142172
           },
           "kahypar": {
             "cut": 2741,
@@ -2429,28 +2612,32 @@
         {
           "allowed_imbalance_percent": 0,
           "fem": {
-            "cut": 5623,
+            "cut": 5624,
             "imbalance_percent": 0.0,
-            "seconds": 5.315146503970027,
+            "seconds": 2.4580429229,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3972685978,
-                "cut": 5623,
-                "seconds": 5.3240837613120675
+                "cut": 5624,
+                "seconds": 2.40868273517,
+                "cuda_seconds": 1.81801095791
               },
               {
                 "seed": 4050462835,
                 "cut": 6162,
-                "seconds": 5.315146503970027
+                "seconds": 2.4580429229,
+                "cuda_seconds": 1.85912671825
               },
               {
                 "seed": 3072428656,
                 "cut": 6394,
-                "seconds": 5.292185533326119
+                "seconds": 2.48928867606,
+                "cuda_seconds": 1.88295408105
               }
-            ]
+            ],
+            "cuda_seconds": 1.85912671825
           },
           "kahypar": {
             "cut": 4233,
@@ -2482,26 +2669,30 @@
           "fem": {
             "cut": 7650,
             "imbalance_percent": 0.8916308778967208,
-            "seconds": 5.668430439662188,
+            "seconds": 2.46741589205,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3972685978,
                 "cut": 7650,
-                "seconds": 5.668430439662188
+                "seconds": 2.46741589205,
+                "cuda_seconds": 1.87071747798
               },
               {
                 "seed": 4050462835,
                 "cut": 7677,
-                "seconds": 5.727317611686885
+                "seconds": 2.50949743018,
+                "cuda_seconds": 1.91281828098
               },
               {
                 "seed": 3072428656,
-                "cut": 7656,
-                "seconds": 5.627077246084809
+                "cut": 7680,
+                "seconds": 1.90269722231,
+                "cuda_seconds": 1.28228511289
               }
-            ]
+            ],
+            "cuda_seconds": 1.87071747798
           },
           "kahypar": {
             "cut": 2107,
@@ -2532,27 +2723,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 7602,
-            "imbalance_percent": 1.4835080987988025,
-            "seconds": 5.7110689780674875,
+            "imbalance_percent": 1.4856881253951348,
+            "seconds": 2.4651552462,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3972685978,
-                "cut": 7617,
-                "seconds": 5.7110689780674875
+                "cut": 7615,
+                "seconds": 2.56029896298,
+                "cuda_seconds": 1.9738398809
               },
               {
                 "seed": 4050462835,
                 "cut": 7602,
-                "seconds": 5.755680617876351
+                "seconds": 2.4651552462,
+                "cuda_seconds": 1.90191670787
               },
               {
                 "seed": 3072428656,
-                "cut": 7638,
-                "seconds": 5.340099283028394
+                "cut": 7633,
+                "seconds": 1.88079854473,
+                "cuda_seconds": 1.3045320902
               }
-            ]
+            ],
+            "cuda_seconds": 1.90191670787
           },
           "kahypar": {
             "cut": 1969,
@@ -2592,26 +2787,30 @@
           "fem": {
             "cut": 3541,
             "imbalance_percent": 0.0,
-            "seconds": 5.345979243051261,
+            "seconds": 2.53637603996,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 138081648,
                 "cut": 3541,
-                "seconds": 5.35474669188261
+                "seconds": 2.49508278724,
+                "cuda_seconds": 1.9044937538
               },
               {
                 "seed": 2099123114,
                 "cut": 3541,
-                "seconds": 5.294330995995551
+                "seconds": 2.54754206399,
+                "cuda_seconds": 1.94155042199
               },
               {
                 "seed": 3065820061,
                 "cut": 3541,
-                "seconds": 5.345979243051261
+                "seconds": 2.53637603996,
+                "cuda_seconds": 1.93356392719
               }
-            ]
+            ],
+            "cuda_seconds": 1.93356392719
           },
           "kahypar": {
             "cut": 3601,
@@ -2643,26 +2842,30 @@
           "fem": {
             "cut": 3249,
             "imbalance_percent": 0.9994824686246684,
-            "seconds": 5.912939369212836,
+            "seconds": 2.63784077903,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 138081648,
                 "cut": 3249,
-                "seconds": 5.912939369212836
+                "seconds": 2.638960246,
+                "cuda_seconds": 2.03775361739
               },
               {
                 "seed": 2099123114,
                 "cut": 3249,
-                "seconds": 5.9737038421444595
+                "seconds": 2.63784077903,
+                "cuda_seconds": 2.04485238204
               },
               {
                 "seed": 3065820061,
                 "cut": 3249,
-                "seconds": 5.880893188994378
+                "seconds": 2.63748014998,
+                "cuda_seconds": 2.03488443885
               }
-            ]
+            ],
+            "cuda_seconds": 2.03775361739
           },
           "kahypar": {
             "cut": 2365,
@@ -2694,26 +2897,30 @@
           "fem": {
             "cut": 2716,
             "imbalance_percent": 2.999525596239283,
-            "seconds": 5.520426492206752,
+            "seconds": 2.53295233287,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 138081648,
                 "cut": 2718,
-                "seconds": 5.506455118302256
+                "seconds": 2.52757762838,
+                "cuda_seconds": 1.9401129419
               },
               {
                 "seed": 2099123114,
                 "cut": 2716,
-                "seconds": 5.520426492206752
+                "seconds": 2.55506937299,
+                "cuda_seconds": 1.93897206476
               },
               {
                 "seed": 3065820061,
                 "cut": 2718,
-                "seconds": 5.522887535858899
+                "seconds": 2.53295233287,
+                "cuda_seconds": 1.94092711713
               }
-            ]
+            ],
+            "cuda_seconds": 1.9401129419
           },
           "kahypar": {
             "cut": 2310,
@@ -2753,26 +2960,30 @@
           "fem": {
             "cut": 1857,
             "imbalance_percent": 0.0,
-            "seconds": 5.5759498360566795,
+            "seconds": 2.71639445983,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2553570355,
                 "cut": 1857,
-                "seconds": 5.586530635133386
+                "seconds": 2.64393452508,
+                "cuda_seconds": 2.00862551993
               },
               {
                 "seed": 1521007742,
                 "cut": 1860,
-                "seconds": 5.5759498360566795
+                "seconds": 2.72377950093,
+                "cuda_seconds": 2.09021683084
               },
               {
                 "seed": 331139531,
                 "cut": 1860,
-                "seconds": 5.573054110165685
+                "seconds": 2.71639445983,
+                "cuda_seconds": 2.084210095
               }
-            ]
+            ],
+            "cuda_seconds": 2.084210095
           },
           "kahypar": {
             "cut": 2906,
@@ -2804,26 +3015,30 @@
           "fem": {
             "cut": 1922,
             "imbalance_percent": 0.9961351097268034,
-            "seconds": 5.689446873962879,
+            "seconds": 2.6956955567,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2553570355,
                 "cut": 1922,
-                "seconds": 5.6724901888519526
+                "seconds": 2.65912148589,
+                "cuda_seconds": 2.05793113634
               },
               {
                 "seed": 1521007742,
                 "cut": 1922,
-                "seconds": 5.689446873962879
+                "seconds": 2.6956955567,
+                "cuda_seconds": 2.09303224925
               },
               {
                 "seed": 331139531,
                 "cut": 1966,
-                "seconds": 5.693870615679771
+                "seconds": 2.74202019395,
+                "cuda_seconds": 2.13602264691
               }
-            ]
+            ],
+            "cuda_seconds": 2.09303224925
           },
           "kahypar": {
             "cut": 1927,
@@ -2854,27 +3069,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 2356,
-            "imbalance_percent": 1.286714083584184,
-            "seconds": 5.427544569130987,
+            "imbalance_percent": 1.2971597329712203,
+            "seconds": 2.6138675157,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2553570355,
                 "cut": 2356,
-                "seconds": 5.417424472048879
+                "seconds": 2.5919073089,
+                "cuda_seconds": 2.01493125316
               },
               {
                 "seed": 1521007742,
                 "cut": 2356,
-                "seconds": 5.427544569130987
+                "seconds": 2.6138675157,
+                "cuda_seconds": 2.02485483093
               },
               {
                 "seed": 331139531,
                 "cut": 2357,
-                "seconds": 5.4357686610892415
+                "seconds": 2.65050485497,
+                "cuda_seconds": 2.03644697089
               }
-            ]
+            ],
+            "cuda_seconds": 2.02485483093
           },
           "kahypar": {
             "cut": 1915,
@@ -2914,26 +3133,30 @@
           "fem": {
             "cut": 4049,
             "imbalance_percent": 0.0,
-            "seconds": 5.22621650993824,
+            "seconds": 2.51707506506,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3854960810,
                 "cut": 4049,
-                "seconds": 5.260854049120098
+                "seconds": 2.38483703602,
+                "cuda_seconds": 1.78492351389
               },
               {
                 "seed": 556537780,
                 "cut": 4049,
-                "seconds": 5.1578943049535155
+                "seconds": 2.53793349164,
+                "cuda_seconds": 1.84603068093
               },
               {
                 "seed": 1942303709,
                 "cut": 4065,
-                "seconds": 5.22621650993824
+                "seconds": 2.51707506506,
+                "cuda_seconds": 1.81938987086
               }
-            ]
+            ],
+            "cuda_seconds": 1.81938987086
           },
           "kahypar": {
             "cut": 7037,
@@ -2963,28 +3186,32 @@
         {
           "allowed_imbalance_percent": 1,
           "fem": {
-            "cut": 9257,
-            "imbalance_percent": 0.7054743230993532,
-            "seconds": 5.759151129052043,
+            "cut": 9259,
+            "imbalance_percent": 0.6227091790485861,
+            "seconds": 1.97055310477,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3854960810,
-                "cut": 9257,
-                "seconds": 5.073362364899367
+                "cut": 9259,
+                "seconds": 1.94411719916,
+                "cuda_seconds": 1.25630395906
               },
               {
                 "seed": 556537780,
-                "cut": 11487,
-                "seconds": 5.759151129052043
+                "cut": 11495,
+                "seconds": 2.0255987132,
+                "cuda_seconds": 1.31709543709
               },
               {
                 "seed": 1942303709,
-                "cut": 9587,
-                "seconds": 5.8464808547869325
+                "cut": 9520,
+                "seconds": 1.97055310477,
+                "cuda_seconds": 1.27453504223
               }
-            ]
+            ],
+            "cuda_seconds": 1.27453504223
           },
           "kahypar": {
             "cut": 3922,
@@ -3016,26 +3243,30 @@
           "fem": {
             "cut": 8062,
             "imbalance_percent": 2.640602214952903,
-            "seconds": 5.628519412595779,
+            "seconds": 2.42206406593,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3854960810,
-                "cut": 8094,
-                "seconds": 5.628519412595779
+                "cut": 8091,
+                "seconds": 2.40524196019,
+                "cuda_seconds": 1.7745189881
               },
               {
                 "seed": 556537780,
-                "cut": 8297,
-                "seconds": 5.702393349725753
+                "cut": 8327,
+                "seconds": 2.68969455222,
+                "cuda_seconds": 1.9084699438
               },
               {
                 "seed": 1942303709,
                 "cut": 8062,
-                "seconds": 5.511369436979294
+                "seconds": 2.42206406593,
+                "cuda_seconds": 1.77484836197
               }
-            ]
+            ],
+            "cuda_seconds": 1.77484836197
           },
           "kahypar": {
             "cut": 3870,
@@ -3073,28 +3304,32 @@
         {
           "allowed_imbalance_percent": 0,
           "fem": {
-            "cut": 9022,
+            "cut": 3977,
             "imbalance_percent": 0.0,
-            "seconds": 5.584857025649399,
+            "seconds": 2.94591771113,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3009040500,
-                "cut": 10266,
-                "seconds": 5.580423382110894
+                "cut": 6585,
+                "seconds": 2.95534351375,
+                "cuda_seconds": 1.89001629222
               },
               {
                 "seed": 822658191,
-                "cut": 9022,
-                "seconds": 5.645385317038745
+                "cut": 6556,
+                "seconds": 2.92355537973,
+                "cuda_seconds": 1.87240790576
               },
               {
                 "seed": 35379238,
-                "cut": 9161,
-                "seconds": 5.584857025649399
+                "cut": 3977,
+                "seconds": 2.94591771113,
+                "cuda_seconds": 1.87780406
               }
-            ]
+            ],
+            "cuda_seconds": 1.87780406
           },
           "kahypar": {
             "cut": 1186,
@@ -3126,26 +3361,30 @@
           "fem": {
             "cut": 624,
             "imbalance_percent": 0.779469960426904,
-            "seconds": 3.459730770904571,
+            "seconds": 0.912217237987,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3009040500,
                 "cut": 624,
-                "seconds": 3.464039188809693
+                "seconds": 0.97835723171,
+                "cuda_seconds": 0.512266518082
               },
               {
                 "seed": 822658191,
                 "cut": 624,
-                "seconds": 3.459730770904571
+                "seconds": 0.912217237987,
+                "cuda_seconds": 0.451905088965
               },
               {
                 "seed": 35379238,
                 "cut": 624,
-                "seconds": 3.438556319102645
+                "seconds": 0.896871211939,
+                "cuda_seconds": 0.448563332669
               }
-            ]
+            ],
+            "cuda_seconds": 0.451905088965
           },
           "kahypar": {
             "cut": 624,
@@ -3177,26 +3416,30 @@
           "fem": {
             "cut": 624,
             "imbalance_percent": 0.779469960426904,
-            "seconds": 3.434974332805723,
+            "seconds": 0.912071430124,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3009040500,
                 "cut": 624,
-                "seconds": 3.410239055287093
+                "seconds": 0.914660956711,
+                "cuda_seconds": 0.45863703778
               },
               {
                 "seed": 822658191,
                 "cut": 624,
-                "seconds": 3.434974332805723
+                "seconds": 0.909219943918,
+                "cuda_seconds": 0.458242505789
               },
               {
                 "seed": 35379238,
                 "cut": 624,
-                "seconds": 3.4913441613316536
+                "seconds": 0.912071430124,
+                "cuda_seconds": 0.459656140767
               }
-            ]
+            ],
+            "cuda_seconds": 0.45863703778
           },
           "kahypar": {
             "cut": 624,
@@ -3236,26 +3479,30 @@
           "fem": {
             "cut": 477,
             "imbalance_percent": 0.0,
-            "seconds": 3.5356217389926314,
+            "seconds": 1.76218061475,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2472611434,
                 "cut": 477,
-                "seconds": 3.52629017829895
+                "seconds": 1.76218061475,
+                "cuda_seconds": 1.43822989985
               },
               {
                 "seed": 212000790,
                 "cut": 477,
-                "seconds": 3.5356217389926314
+                "seconds": 1.55850596493,
+                "cuda_seconds": 1.33624518709
               },
               {
                 "seed": 4146030812,
                 "cut": 525,
-                "seconds": 3.9152249773032963
+                "seconds": 2.32257544808,
+                "cuda_seconds": 2.111373886
               }
-            ]
+            ],
+            "cuda_seconds": 1.43822989985
           },
           "kahypar": {
             "cut": 448,
@@ -3287,26 +3534,30 @@
           "fem": {
             "cut": 485,
             "imbalance_percent": 0.955056179775271,
-            "seconds": 4.0446448270231485,
+            "seconds": 2.04685809696,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2472611434,
                 "cut": 485,
-                "seconds": 4.047083081211895
+                "seconds": 2.2810579841,
+                "cuda_seconds": 2.0707531306
               },
               {
                 "seed": 212000790,
-                "cut": 535,
-                "seconds": 3.679777333047241
+                "cut": 537,
+                "seconds": 1.3474586173,
+                "cuda_seconds": 1.14132307563
               },
               {
                 "seed": 4146030812,
                 "cut": 530,
-                "seconds": 4.0446448270231485
+                "seconds": 2.04685809696,
+                "cuda_seconds": 1.84110075515
               }
-            ]
+            ],
+            "cuda_seconds": 1.84110075515
           },
           "kahypar": {
             "cut": 361,
@@ -3336,28 +3587,32 @@
         {
           "allowed_imbalance_percent": 3,
           "fem": {
-            "cut": 484,
-            "imbalance_percent": 2.8089887640449396,
-            "seconds": 4.17769864294678,
+            "cut": 485,
+            "imbalance_percent": 2.397003745318349,
+            "seconds": 2.38747569127,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2472611434,
-                "cut": 484,
-                "seconds": 4.1058947909623384
+                "cut": 485,
+                "seconds": 1.10224203067,
+                "cuda_seconds": 0.895523261745
               },
               {
                 "seed": 212000790,
                 "cut": 489,
-                "seconds": 4.360122554935515
+                "seconds": 2.44374164706,
+                "cuda_seconds": 2.23155242484
               },
               {
                 "seed": 4146030812,
                 "cut": 487,
-                "seconds": 4.17769864294678
+                "seconds": 2.38747569127,
+                "cuda_seconds": 2.181987816
               }
-            ]
+            ],
+            "cuda_seconds": 2.181987816
           },
           "kahypar": {
             "cut": 352,
@@ -3397,26 +3652,30 @@
           "fem": {
             "cut": 352,
             "imbalance_percent": 0.0,
-            "seconds": 3.9911967972293496,
+            "seconds": 1.86823816365,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3896339974,
                 "cut": 371,
-                "seconds": 3.947314247954637
+                "seconds": 1.8476849026,
+                "cuda_seconds": 1.57315621106
               },
               {
                 "seed": 2640120346,
                 "cut": 415,
-                "seconds": 3.9991804054006934
+                "seconds": 1.86823816365,
+                "cuda_seconds": 1.56036761822
               },
               {
                 "seed": 838206347,
                 "cut": 352,
-                "seconds": 3.9911967972293496
+                "seconds": 1.8853909797,
+                "cuda_seconds": 1.57420583582
               }
-            ]
+            ],
+            "cuda_seconds": 1.57315621106
           },
           "kahypar": {
             "cut": 436,
@@ -3446,28 +3705,32 @@
         {
           "allowed_imbalance_percent": 1,
           "fem": {
-            "cut": 349,
-            "imbalance_percent": 0.9427325172365331,
-            "seconds": 4.058260872960091,
+            "cut": 353,
+            "imbalance_percent": 0.999015055579,
+            "seconds": 1.88148014201,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3896339974,
-                "cut": 349,
-                "seconds": 4.143262499943376
+                "cut": 353,
+                "seconds": 1.86488763383,
+                "cuda_seconds": 1.61167725595
               },
               {
                 "seed": 2640120346,
                 "cut": 361,
-                "seconds": 4.058260872960091
+                "seconds": 1.88148014201,
+                "cuda_seconds": 1.60960034514
               },
               {
                 "seed": 838206347,
                 "cut": 361,
-                "seconds": 4.045097175054252
+                "seconds": 1.88170839567,
+                "cuda_seconds": 1.61178147513
               }
-            ]
+            ],
+            "cuda_seconds": 1.61167725595
           },
           "kahypar": {
             "cut": 328,
@@ -3497,28 +3760,32 @@
         {
           "allowed_imbalance_percent": 3,
           "fem": {
-            "cut": 361,
-            "imbalance_percent": 1.4352047277332192,
-            "seconds": 4.11429096898064,
+            "cut": 360,
+            "imbalance_percent": 2.7437737441958543,
+            "seconds": 1.97914472269,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3896339974,
-                "cut": 366,
-                "seconds": 2.9466098570264876
+                "cut": 364,
+                "seconds": 2.3493177332,
+                "cuda_seconds": 2.09361814009
               },
               {
                 "seed": 2640120346,
                 "cut": 406,
-                "seconds": 4.11429096898064
+                "seconds": 1.85717830807,
+                "cuda_seconds": 1.59659328731
               },
               {
                 "seed": 838206347,
-                "cut": 361,
-                "seconds": 4.117610658053309
+                "cut": 360,
+                "seconds": 1.97914472269,
+                "cuda_seconds": 1.69239889923
               }
-            ]
+            ],
+            "cuda_seconds": 1.69239889923
           },
           "kahypar": {
             "cut": 324,
@@ -3558,26 +3825,30 @@
           "fem": {
             "cut": 372,
             "imbalance_percent": 0.0,
-            "seconds": 4.300667972769588,
+            "seconds": 1.69377102237,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3289897495,
                 "cut": 372,
-                "seconds": 4.260836475994438
+                "seconds": 1.87437637569,
+                "cuda_seconds": 1.42438666895
               },
               {
                 "seed": 1263737522,
                 "cut": 372,
-                "seconds": 4.333966840989888
+                "seconds": 1.69377102237,
+                "cuda_seconds": 1.34711273201
               },
               {
                 "seed": 240994413,
                 "cut": 372,
-                "seconds": 4.300667972769588
+                "seconds": 1.66444664402,
+                "cuda_seconds": 1.35560349096
               }
-            ]
+            ],
+            "cuda_seconds": 1.35560349096
           },
           "kahypar": {
             "cut": 414,
@@ -3609,26 +3880,30 @@
           "fem": {
             "cut": 360,
             "imbalance_percent": 0.17152658662091813,
-            "seconds": 3.084510730113834,
+            "seconds": 0.702922508121,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3289897495,
                 "cut": 378,
-                "seconds": 3.084510730113834
+                "seconds": 0.702922508121,
+                "cuda_seconds": 0.397888587788
               },
               {
                 "seed": 1263737522,
                 "cut": 372,
-                "seconds": 4.38709404412657
+                "seconds": 1.85782557819,
+                "cuda_seconds": 1.56719772005
               },
               {
                 "seed": 240994413,
                 "cut": 360,
-                "seconds": 3.0198131049983203
+                "seconds": 0.591396755073,
+                "cuda_seconds": 0.305802138988
               }
-            ]
+            ],
+            "cuda_seconds": 0.397888587788
           },
           "kahypar": {
             "cut": 360,
@@ -3660,26 +3935,30 @@
           "fem": {
             "cut": 360,
             "imbalance_percent": 0.17152658662091813,
-            "seconds": 2.9762346791103482,
+            "seconds": 0.720174148213,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3289897495,
                 "cut": 378,
-                "seconds": 4.365667330101132
+                "seconds": 1.64856899017,
+                "cuda_seconds": 1.36354797194
               },
               {
                 "seed": 1263737522,
                 "cut": 372,
-                "seconds": 2.9706079130992293
+                "seconds": 0.720174148213,
+                "cuda_seconds": 0.43116548704
               },
               {
                 "seed": 240994413,
                 "cut": 360,
-                "seconds": 2.9762346791103482
+                "seconds": 0.60924365418,
+                "cuda_seconds": 0.324729396962
               }
-            ]
+            ],
+            "cuda_seconds": 0.43116548704
           },
           "kahypar": {
             "cut": 360,
@@ -3719,26 +3998,30 @@
           "fem": {
             "cut": 4372,
             "imbalance_percent": 0.0,
-            "seconds": 4.193122864700854,
+            "seconds": 2.0617495859,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1559606523,
                 "cut": 4372,
-                "seconds": 4.187237916979939
+                "seconds": 2.0617495859,
+                "cuda_seconds": 1.79230612423
               },
               {
                 "seed": 243387250,
                 "cut": 4453,
-                "seconds": 4.208861992228776
+                "seconds": 2.07261289097,
+                "cuda_seconds": 1.79048898397
               },
               {
                 "seed": 250451587,
                 "cut": 4400,
-                "seconds": 4.193122864700854
+                "seconds": 2.05983784189,
+                "cuda_seconds": 1.79031846579
               }
-            ]
+            ],
+            "cuda_seconds": 1.79048898397
           },
           "kahypar": {
             "cut": 4764,
@@ -3770,26 +4053,30 @@
           "fem": {
             "cut": 4730,
             "imbalance_percent": 0.9855623757240473,
-            "seconds": 4.5261578359641135,
+            "seconds": 2.20754315192,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1559606523,
                 "cut": 4773,
-                "seconds": 4.500333601143211
+                "seconds": 2.19862632593,
+                "cuda_seconds": 1.9480156526
               },
               {
                 "seed": 243387250,
                 "cut": 4730,
-                "seconds": 4.5261578359641135
+                "seconds": 2.22239637701,
+                "cuda_seconds": 1.94569044886
               },
               {
                 "seed": 250451587,
                 "cut": 5000,
-                "seconds": 4.571465911809355
+                "seconds": 2.20754315192,
+                "cuda_seconds": 1.94477787381
               }
-            ]
+            ],
+            "cuda_seconds": 1.94569044886
           },
           "kahypar": {
             "cut": 3981,
@@ -3821,26 +4108,30 @@
           "fem": {
             "cut": 4235,
             "imbalance_percent": 2.999913547160027,
-            "seconds": 4.244329055771232,
+            "seconds": 2.00997265521,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 1559606523,
                 "cut": 4235,
-                "seconds": 4.289005484897643
+                "seconds": 2.01153377863,
+                "cuda_seconds": 1.74879849516
               },
               {
                 "seed": 243387250,
                 "cut": 4235,
-                "seconds": 4.244329055771232
+                "seconds": 2.00825517904,
+                "cuda_seconds": 1.7487747469
               },
               {
                 "seed": 250451587,
                 "cut": 4235,
-                "seconds": 4.228188702370971
+                "seconds": 2.00997265521,
+                "cuda_seconds": 1.74860630278
               }
-            ]
+            ],
+            "cuda_seconds": 1.7487747469
           },
           "kahypar": {
             "cut": 3878,
@@ -3880,26 +4171,30 @@
           "fem": {
             "cut": 2645,
             "imbalance_percent": 0.0,
-            "seconds": 5.699056658893824,
+            "seconds": 2.76867748098,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3038303108,
                 "cut": 2645,
-                "seconds": 5.699056658893824
+                "seconds": 2.76867748098,
+                "cuda_seconds": 1.82686542673
               },
               {
                 "seed": 1287466507,
-                "cut": 2740,
-                "seconds": 5.761455388739705
+                "cut": 2700,
+                "seconds": 2.96104794601,
+                "cuda_seconds": 1.7915333421
               },
               {
                 "seed": 2762940346,
                 "cut": 4304,
-                "seconds": 5.635392468888313
+                "seconds": 2.7338774167,
+                "cuda_seconds": 1.7827034248
               }
-            ]
+            ],
+            "cuda_seconds": 1.7915333421
           },
           "kahypar": {
             "cut": 3243,
@@ -3931,26 +4226,30 @@
           "fem": {
             "cut": 2080,
             "imbalance_percent": 0.6397192028985588,
-            "seconds": 5.201462244614959,
+            "seconds": 2.50669312011,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3038303108,
                 "cut": 2080,
-                "seconds": 5.222866483032703
+                "seconds": 2.45163719682,
+                "cuda_seconds": 1.82363311201
               },
               {
                 "seed": 1287466507,
                 "cut": 2348,
-                "seconds": 5.201462244614959
+                "seconds": 2.51275608316,
+                "cuda_seconds": 1.86727572745
               },
               {
                 "seed": 2762940346,
                 "cut": 2140,
-                "seconds": 5.1800939328968525
+                "seconds": 2.50669312011,
+                "cuda_seconds": 1.86821138021
               }
-            ]
+            ],
+            "cuda_seconds": 1.86727572745
           },
           "kahypar": {
             "cut": 1564,
@@ -3982,26 +4281,30 @@
           "fem": {
             "cut": 1878,
             "imbalance_percent": 2.8872282608695565,
-            "seconds": 5.59073755517602,
+            "seconds": 2.61007304955,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3038303108,
                 "cut": 2152,
-                "seconds": 5.59073755517602
+                "seconds": 2.655108843,
+                "cuda_seconds": 1.96532873809
               },
               {
                 "seed": 1287466507,
                 "cut": 1878,
-                "seconds": 5.6423222362063825
+                "seconds": 2.61007304955,
+                "cuda_seconds": 1.89288728312
               },
               {
                 "seed": 2762940346,
                 "cut": 2194,
-                "seconds": 5.521096951328218
+                "seconds": 2.5585937323,
+                "cuda_seconds": 1.91253355471
               }
-            ]
+            ],
+            "cuda_seconds": 1.91253355471
           },
           "kahypar": {
             "cut": 1564,
@@ -4041,26 +4344,30 @@
           "fem": {
             "cut": 146,
             "imbalance_percent": 0.0,
-            "seconds": 3.148277686908841,
+            "seconds": 0.580498191994,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3960982286,
                 "cut": 146,
-                "seconds": 3.1625255341641605
+                "seconds": 0.580658427905,
+                "cuda_seconds": 0.270771642216
               },
               {
                 "seed": 1307361046,
                 "cut": 146,
-                "seconds": 3.148277686908841
+                "seconds": 0.580498191994,
+                "cuda_seconds": 0.270822586957
               },
               {
                 "seed": 3341857518,
                 "cut": 146,
-                "seconds": 3.0993227707222104
+                "seconds": 0.57882123813,
+                "cuda_seconds": 0.270961638074
               }
-            ]
+            ],
+            "cuda_seconds": 0.270822586957
           },
           "kahypar": {
             "cut": 973,
@@ -4092,26 +4399,30 @@
           "fem": {
             "cut": 146,
             "imbalance_percent": 0.0,
-            "seconds": 3.130220270715654,
+            "seconds": 0.623092462774,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3960982286,
                 "cut": 146,
-                "seconds": 3.185995614156127
+                "seconds": 0.623100993223,
+                "cuda_seconds": 0.310836885124
               },
               {
                 "seed": 1307361046,
                 "cut": 146,
-                "seconds": 3.130220270715654
+                "seconds": 0.622086325195,
+                "cuda_seconds": 0.310861341655
               },
               {
                 "seed": 3341857518,
                 "cut": 146,
-                "seconds": 3.1274119541049004
+                "seconds": 0.623092462774,
+                "cuda_seconds": 0.311001752038
               }
-            ]
+            ],
+            "cuda_seconds": 0.310861341655
           },
           "kahypar": {
             "cut": 146,
@@ -4143,26 +4454,30 @@
           "fem": {
             "cut": 146,
             "imbalance_percent": 0.0,
-            "seconds": 3.1121317627839744,
+            "seconds": 0.622961330693,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3960982286,
                 "cut": 146,
-                "seconds": 3.1121317627839744
+                "seconds": 0.622961330693,
+                "cuda_seconds": 0.312599917874
               },
               {
                 "seed": 1307361046,
                 "cut": 146,
-                "seconds": 3.116134305950254
+                "seconds": 0.617272187956,
+                "cuda_seconds": 0.312648491003
               },
               {
                 "seed": 3341857518,
                 "cut": 146,
-                "seconds": 3.094757864251733
+                "seconds": 0.62570640631,
+                "cuda_seconds": 0.31281947298
               }
-            ]
+            ],
+            "cuda_seconds": 0.312648491003
           },
           "kahypar": {
             "cut": 146,
@@ -4202,26 +4517,30 @@
           "fem": {
             "cut": 1026,
             "imbalance_percent": 0.0,
-            "seconds": 5.877331834286451,
+            "seconds": 1.4909967701,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2292060637,
                 "cut": 1026,
-                "seconds": 5.828052850905806
+                "seconds": 1.36591663118,
+                "cuda_seconds": 0.421968917362
               },
               {
                 "seed": 490520379,
                 "cut": 1026,
-                "seconds": 5.877331834286451
+                "seconds": 1.4909967701,
+                "cuda_seconds": 0.450746602844
               },
               {
                 "seed": 2274384884,
                 "cut": 1026,
-                "seconds": 5.877575358841568
+                "seconds": 1.50687396014,
+                "cuda_seconds": 0.449324843008
               }
-            ]
+            ],
+            "cuda_seconds": 0.449324843008
           },
           "kahypar": {
             "cut": 1836,
@@ -4252,27 +4571,31 @@
           "allowed_imbalance_percent": 1,
           "fem": {
             "cut": 1026,
-            "imbalance_percent": 0.020158759741817356,
-            "seconds": 7.341678266879171,
+            "imbalance_percent": 0.013692742466142604,
+            "seconds": 2.22498044698,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2292060637,
                 "cut": 1026,
-                "seconds": 7.329542349092662
+                "seconds": 2.22498044698,
+                "cuda_seconds": 1.15733396215
               },
               {
                 "seed": 490520379,
                 "cut": 1026,
-                "seconds": 7.350372651126236
+                "seconds": 2.27889179112,
+                "cuda_seconds": 1.22074532975
               },
               {
                 "seed": 2274384884,
                 "cut": 1026,
-                "seconds": 7.341678266879171
+                "seconds": 2.20478655072,
+                "cuda_seconds": 1.13959781639
               }
-            ]
+            ],
+            "cuda_seconds": 1.15733396215
           },
           "kahypar": {
             "cut": 1026,
@@ -4303,27 +4626,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 1026,
-            "imbalance_percent": 0.020158759741817356,
-            "seconds": 7.377648597117513,
+            "imbalance_percent": 0.013692742466142604,
+            "seconds": 2.29259033222,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2292060637,
                 "cut": 1026,
-                "seconds": 7.377648597117513
+                "seconds": 2.18796774978,
+                "cuda_seconds": 1.12728306418
               },
               {
                 "seed": 490520379,
                 "cut": 1026,
-                "seconds": 7.379256654065102
+                "seconds": 2.29259033222,
+                "cuda_seconds": 1.23382290406
               },
               {
                 "seed": 2274384884,
                 "cut": 1026,
-                "seconds": 7.363601696211845
+                "seconds": 2.32393427519,
+                "cuda_seconds": 1.24926029565
               }
-            ]
+            ],
+            "cuda_seconds": 1.23382290406
           },
           "kahypar": {
             "cut": 1026,
@@ -4363,26 +4690,30 @@
           "fem": {
             "cut": 164,
             "imbalance_percent": 0.0,
-            "seconds": 4.92867926787585,
+            "seconds": 2.62927196687,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2934623731,
                 "cut": 164,
-                "seconds": 4.905031498987228
+                "seconds": 2.47811383381,
+                "cuda_seconds": 2.01214846782
               },
               {
                 "seed": 1214859921,
                 "cut": 164,
-                "seconds": 4.946520135737956
+                "seconds": 2.64794687694,
+                "cuda_seconds": 2.08212353708
               },
               {
                 "seed": 2636259824,
                 "cut": 164,
-                "seconds": 4.92867926787585
+                "seconds": 2.62927196687,
+                "cuda_seconds": 2.05967859225
               }
-            ]
+            ],
+            "cuda_seconds": 2.05967859225
           },
           "kahypar": {
             "cut": 84,
@@ -4413,27 +4744,31 @@
           "allowed_imbalance_percent": 1,
           "fem": {
             "cut": 129,
-            "imbalance_percent": 0.9965028830746459,
-            "seconds": 5.138255261350423,
+            "imbalance_percent": 0.9953332787518088,
+            "seconds": 2.6149845249,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2934623731,
                 "cut": 129,
-                "seconds": 5.13796816393733
+                "seconds": 2.60170694999,
+                "cuda_seconds": 2.04438426066
               },
               {
                 "seed": 1214859921,
                 "cut": 129,
-                "seconds": 5.158706404268742
+                "seconds": 2.68637991836,
+                "cuda_seconds": 2.1184918778
               },
               {
                 "seed": 2636259824,
                 "cut": 129,
-                "seconds": 5.138255261350423
+                "seconds": 2.6149845249,
+                "cuda_seconds": 2.04726768704
               }
-            ]
+            ],
+            "cuda_seconds": 2.04726768704
           },
           "kahypar": {
             "cut": 46,
@@ -4464,27 +4799,31 @@
           "allowed_imbalance_percent": 3,
           "fem": {
             "cut": 44,
-            "imbalance_percent": 2.5029532509152075,
-            "seconds": 3.9696260639466345,
+            "imbalance_percent": 2.4982748336237925,
+            "seconds": 1.3920901902,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 2934623731,
                 "cut": 44,
-                "seconds": 3.9696260639466345
+                "seconds": 1.3920901902,
+                "cuda_seconds": 0.840561339166
               },
               {
                 "seed": 1214859921,
                 "cut": 44,
-                "seconds": 3.9436830659396946
+                "seconds": 1.42656606296,
+                "cuda_seconds": 0.881435853429
               },
               {
                 "seed": 2636259824,
                 "cut": 44,
-                "seconds": 3.9839654229581356
+                "seconds": 1.36735459371,
+                "cuda_seconds": 0.816877357196
               }
-            ]
+            ],
+            "cuda_seconds": 0.840561339166
           },
           "kahypar": {
             "cut": 42,
@@ -4524,26 +4863,30 @@
           "fem": {
             "cut": 2515,
             "imbalance_percent": 0.0,
-            "seconds": 4.713538016192615,
+            "seconds": 2.39857970364,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3146459213,
                 "cut": 2515,
-                "seconds": 4.713538016192615
+                "seconds": 2.39857970364,
+                "cuda_seconds": 1.73975873785
               },
               {
                 "seed": 2009395734,
                 "cut": 3132,
-                "seconds": 4.746057508978993
+                "seconds": 2.43827710999,
+                "cuda_seconds": 1.73514187383
               },
               {
                 "seed": 3572781338,
                 "cut": 2810,
-                "seconds": 4.642970765009522
+                "seconds": 2.30417236174,
+                "cuda_seconds": 1.70322638704
               }
-            ]
+            ],
+            "cuda_seconds": 1.73514187383
           },
           "kahypar": {
             "cut": 950,
@@ -4575,26 +4918,30 @@
           "fem": {
             "cut": 768,
             "imbalance_percent": 0.0,
-            "seconds": 3.1579571086913347,
+            "seconds": 0.684301629663,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3146459213,
                 "cut": 768,
-                "seconds": 3.1602482553571463
+                "seconds": 0.816500033718,
+                "cuda_seconds": 0.475029931869
               },
               {
                 "seed": 2009395734,
                 "cut": 768,
-                "seconds": 3.1579571086913347
+                "seconds": 0.684027985204,
+                "cuda_seconds": 0.410877058748
               },
               {
                 "seed": 3572781338,
                 "cut": 768,
-                "seconds": 3.148304341826588
+                "seconds": 0.684301629663,
+                "cuda_seconds": 0.410808474291
               }
-            ]
+            ],
+            "cuda_seconds": 0.410877058748
           },
           "kahypar": {
             "cut": 640,
@@ -4626,26 +4973,30 @@
           "fem": {
             "cut": 768,
             "imbalance_percent": 0.0,
-            "seconds": 3.135514493100345,
+            "seconds": 0.691897990182,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 3146459213,
                 "cut": 768,
-                "seconds": 3.1840523849241436
+                "seconds": 0.689932512119,
+                "cuda_seconds": 0.413102719933
               },
               {
                 "seed": 2009395734,
                 "cut": 768,
-                "seconds": 3.135514493100345
+                "seconds": 0.692828360014,
+                "cuda_seconds": 0.41310449969
               },
               {
                 "seed": 3572781338,
                 "cut": 768,
-                "seconds": 3.106841698754579
+                "seconds": 0.691897990182,
+                "cuda_seconds": 0.412998127751
               }
-            ]
+            ],
+            "cuda_seconds": 0.413102719933
           },
           "kahypar": {
             "cut": 640,
@@ -4685,26 +5036,30 @@
           "fem": {
             "cut": 256,
             "imbalance_percent": 0.0,
-            "seconds": 4.598439978901297,
+            "seconds": 2.00963999424,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 617205828,
                 "cut": 256,
-                "seconds": 4.587619306985289
+                "seconds": 2.00963999424,
+                "cuda_seconds": 1.67369683506
               },
               {
                 "seed": 3791297255,
                 "cut": 256,
-                "seconds": 4.598439978901297
+                "seconds": 2.00774864387,
+                "cuda_seconds": 1.67386908596
               },
               {
                 "seed": 2605098444,
                 "cut": 256,
-                "seconds": 4.634865588974208
+                "seconds": 2.04825509014,
+                "cuda_seconds": 1.71125285374
               }
-            ]
+            ],
+            "cuda_seconds": 1.67386908596
           },
           "kahypar": {
             "cut": 354,
@@ -4736,26 +5091,30 @@
           "fem": {
             "cut": 256,
             "imbalance_percent": 0.03629588404674422,
-            "seconds": 3.537726142909378,
+            "seconds": 0.982605934143,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 617205828,
                 "cut": 256,
-                "seconds": 3.5485670529305935
+                "seconds": 0.991535294801,
+                "cuda_seconds": 0.67005968513
               },
               {
                 "seed": 3791297255,
                 "cut": 256,
-                "seconds": 3.537726142909378
+                "seconds": 0.982605934143,
+                "cuda_seconds": 0.662635874934
               },
               {
                 "seed": 2605098444,
                 "cut": 258,
-                "seconds": 3.533686185721308
+                "seconds": 0.97409865493,
+                "cuda_seconds": 0.662937141955
               }
-            ]
+            ],
+            "cuda_seconds": 0.662937141955
           },
           "kahypar": {
             "cut": 239,
@@ -4787,26 +5146,30 @@
           "fem": {
             "cut": 256,
             "imbalance_percent": 0.03629588404674422,
-            "seconds": 3.5120141678489745,
+            "seconds": 0.9880302581,
             "cut_statistic": "best of three",
             "time_statistic": "median process wall time per trial",
             "trials": [
               {
                 "seed": 617205828,
                 "cut": 256,
-                "seconds": 3.500288750976324
+                "seconds": 0.98970628297,
+                "cuda_seconds": 0.666404068936
               },
               {
                 "seed": 3791297255,
                 "cut": 256,
-                "seconds": 3.5120141678489745
+                "seconds": 0.9880302581,
+                "cuda_seconds": 0.666382608004
               },
               {
                 "seed": 2605098444,
                 "cut": 258,
-                "seconds": 3.525819375179708
+                "seconds": 0.979448921047,
+                "cuda_seconds": 0.666355944239
               }
-            ]
+            ],
+            "cuda_seconds": 0.666382608004
           },
           "kahypar": {
             "cut": 239,
@@ -4836,6 +5199,14 @@
       ]
     }
   ],
-  "source_cohort": "fp32_unified_2026-10-17",
-  "no_cross_precision_pooling": true
+  "source_cohort": "consecutive_stopping_2026-10-17/full_cohort",
+  "no_cross_precision_pooling": true,
+  "stopping_protocol": {
+    "checkpoint_interval": 64,
+    "cut_plateau_window": 128,
+    "cut_relative_gain": 0.0,
+    "definition": "Three consecutive feasible current cuts equal the same feasible best at 64-update checks (window128); unchanged terminal verification.",
+    "terminal": "Unchanged final-temperature/final-penalty zero-catalyst verification, minimum64/max144 updates; minimum two stable terminal checks."
+  },
+  "refinement_protocol": "Same gain algorithm, eight passes, at most20000 considered moves per pass,512-stall cap; wall-clock guards removed, all actual CPU time charged."
 }
